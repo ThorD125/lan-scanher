@@ -1,0 +1,20 @@
+Nmap scan report for 192.168.52.10
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey:
+|   3072 a8ff5c8427a38e15203fd81413dfe403 (RSA)
+|   256 6fdda3ab46bc0e287cb88e5c33994062 (ECDSA)
+|_  256 2d16b17a6e5d015ab2f9534844bbdb12 (ED25519)
+MAC Address: 00:0C:29:FD:1D:68 (VMware)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Uptime guess: 7.967 days (since Sun Apr 23 17:36:22 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.22 ms 192.168.52.10

@@ -1,0 +1,52 @@
+Nmap scan report for 192.168.52.4
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Simple DNS Plus
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2023-05-01 21:45:37Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: pokemon.lan0., Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: pokemon.lan0., Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+9389/tcp  open  mc-nmf        .NET Message Framing
+49664/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+58415/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+58416/tcp open  msrpc         Microsoft Windows RPC
+58426/tcp open  msrpc         Microsoft Windows RPC
+58441/tcp open  msrpc         Microsoft Windows RPC
+MAC Address: E8:D8:D1:D7:4A:7A (HP)
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2016|10|2012|Vista (93%)
+OS CPE: cpe:/o:microsoft:windows_server_2016 cpe:/o:microsoft:windows_10 cpe:/o:microsoft:windows_server_2012:r2 cpe:/o:microsoft:windows_vista::sp1:home_premium
+Aggressive OS guesses: Microsoft Windows Server 2016 (93%), Microsoft Windows 10 (89%), Microsoft Windows Server 2012 or Windows Server 2012 R2 (87%), Microsoft Windows Vista Home Premium SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime guess: 0.555 days (since Mon May  1 03:29:42 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: MEW; OS: Windows; CPE: cpe:/o:microsoft:windows
+Host script results:
+| nbstat: NetBIOS name: MEW, NetBIOS user: <unknown>, NetBIOS MAC: e8d8d1d74a7a (HP)
+| Names:
+|   MEW<00>              Flags: <unique><active>
+|   POKEMON<00>          Flags: <group><active>
+|   POKEMON<1c>          Flags: <group><active>
+|   MEW<20>              Flags: <unique><active>
+|_  POKEMON<1b>          Flags: <unique><active>
+| smb2-time:
+|   date: 2023-05-01T21:47:27
+|_  start_date: N/A
+| smb2-security-mode:
+|   311:
+|_    Message signing enabled and required
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.35 ms 192.168.52.4

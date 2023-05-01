@@ -1,0 +1,4 @@
+Nmap scan report for 192.168.52.10
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 00:0C:29:FD:1D:68 (VMware)

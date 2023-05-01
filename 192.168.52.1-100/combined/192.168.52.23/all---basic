@@ -1,0 +1,5 @@
+Nmap scan report for 192.168.52.23
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+MAC Address: 00:0C:29:E8:17:24 (VMware)

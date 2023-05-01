@@ -1,0 +1,7 @@
+Nmap scan report for 192.168.52.60
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+5432/tcp open  postgresql
+9200/tcp open  wap-wsp
+MAC Address: 00:0C:29:19:3B:7E (VMware)

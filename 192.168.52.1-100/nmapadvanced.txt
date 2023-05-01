@@ -1,0 +1,365 @@
+Nmap scan report for 192.168.52.4
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Simple DNS Plus
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2023-05-01 21:45:37Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: pokemon.lan0., Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: pokemon.lan0., Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+9389/tcp  open  mc-nmf        .NET Message Framing
+49664/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+58415/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+58416/tcp open  msrpc         Microsoft Windows RPC
+58426/tcp open  msrpc         Microsoft Windows RPC
+58441/tcp open  msrpc         Microsoft Windows RPC
+MAC Address: E8:D8:D1:D7:4A:7A (HP)
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2016|10|2012|Vista (93%)
+OS CPE: cpe:/o:microsoft:windows_server_2016 cpe:/o:microsoft:windows_10 cpe:/o:microsoft:windows_server_2012:r2 cpe:/o:microsoft:windows_vista::sp1:home_premium
+Aggressive OS guesses: Microsoft Windows Server 2016 (93%), Microsoft Windows 10 (89%), Microsoft Windows Server 2012 or Windows Server 2012 R2 (87%), Microsoft Windows Vista Home Premium SP1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime guess: 0.555 days (since Mon May  1 03:29:42 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: MEW; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| nbstat: NetBIOS name: MEW, NetBIOS user: <unknown>, NetBIOS MAC: e8d8d1d74a7a (HP)
+| Names:
+|   MEW<00>              Flags: <unique><active>
+|   POKEMON<00>          Flags: <group><active>
+|   POKEMON<1c>          Flags: <group><active>
+|   MEW<20>              Flags: <unique><active>
+|_  POKEMON<1b>          Flags: <unique><active>
+| smb2-time: 
+|   date: 2023-05-01T21:47:27
+|_  start_date: N/A
+| smb2-security-mode: 
+|   311: 
+|_    Message signing enabled and required
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.35 ms 192.168.52.4
+
+Nmap scan report for 192.168.52.10
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 a8ff5c8427a38e15203fd81413dfe403 (RSA)
+|   256 6fdda3ab46bc0e287cb88e5c33994062 (ECDSA)
+|_  256 2d16b17a6e5d015ab2f9534844bbdb12 (ED25519)
+MAC Address: 00:0C:29:FD:1D:68 (VMware)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Uptime guess: 7.967 days (since Sun Apr 23 17:36:22 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.22 ms 192.168.52.10
+
+Nmap scan report for 192.168.52.23
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 3.0.3
+80/tcp    open  http    Apache httpd 2.4.54 ((Debian))
+| http-methods: 
+|_  Supported Methods: HEAD GET POST OPTIONS
+|_http-title: Intranet - pokemon.lan
+|_http-server-header: Apache/2.4.54 (Debian)
+225/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 9449e8cf856ad016443049febb6b61b9 (RSA)
+|   256 f438c42b52ecaadb6d18f7a2ce22059a (ECDSA)
+|_  256 ee4273caae054615e8be9f0765e6bca5 (ED25519)
+25565/tcp open  rtsp
+| fingerprint-strings: 
+|   FourOhFourRequest, HTTPOptions: 
+|     HTTP/1.0 404 Not Found
+|     content-type: text/html; charset=utf-8
+|     content-length: 53
+|     <html><body><h1>Resource not found</h1></body></html>
+|   GetRequest: 
+|     HTTP/1.0 200 OK
+|     accept-ranges: bytes
+|     content-length: 572
+|     cache-control: public, immutable, max-age=86400
+|     last-modified: Thu, 27 Apr 2023 19:18:28 GMT
+|     date: Mon, 1 May 2023 21:45:47 GMT
+|     content-type: text/html;charset=UTF-8
+|     <!DOCTYPE html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="UTF-8">
+|     <title>Command Injection</title>
+|     <script src="assets/javascript/index.js"></script>
+|     </head>
+|     <body>
+|     <h1>Command Injection</h1>
+|     <figure>
+|     <img src="./media/magmar.png" title="Magmar" alt="Magmar" style="max-height: 30rem" />
+|     <figcaption>Congrats, you found Magmar</figcaption>
+|     </figure>
+|     <form id="exec">
+|     <h2>Execute a command</h2>
+|     <label for="cmd">Enter a command</label>
+|     <input id="cmd" type="text"/>
+|     <input type="submit" value="EXEC">
+|     </form>
+|     <pre></pre>
+|     </body>
+|     </html>
+|   RTSPRequest: 
+|     RTSP/1.0 501 Not Implemented
+|     content-length: 0
+|   SIPOptions: 
+|     SIP/2.0 501 Not Implemented
+|_    content-length: 0
+|_rtsp-methods: ERROR: Script execution failed (use -d to debug)
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port25565-TCP:V=7.93%I=7%D=5/1%Time=6450330B%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,324,"HTTP/1\.0\x20200\x20OK\r\naccept-ranges:\x20bytes\r\ncont
+SF:ent-length:\x20572\r\ncache-control:\x20public,\x20immutable,\x20max-ag
+SF:e=86400\r\nlast-modified:\x20Thu,\x2027\x20Apr\x202023\x2019:18:28\x20G
+SF:MT\r\ndate:\x20Mon,\x201\x20May\x202023\x2021:45:47\x20GMT\r\ncontent-t
+SF:ype:\x20text/html;charset=UTF-8\r\n\r\n<!DOCTYPE\x20html>\n<html\x20lan
+SF:g=\"en\">\n<head>\n\x20\x20\x20\x20<meta\x20charset=\"UTF-8\">\n\x20\x2
+SF:0\x20\x20<title>Command\x20Injection</title>\n\x20\x20\x20\x20<script\x
+SF:20src=\"assets/javascript/index\.js\"></script>\n</head>\n<body>\n<h1>C
+SF:ommand\x20Injection</h1>\n\n<figure>\n\x20\x20\x20\x20<img\x20src=\"\./
+SF:media/magmar\.png\"\x20title=\"Magmar\"\x20alt=\"Magmar\"\x20style=\"ma
+SF:x-height:\x2030rem\"\x20/>\n\x20\x20\x20\x20<figcaption>Congrats,\x20yo
+SF:u\x20found\x20Magmar</figcaption>\n</figure>\n\n<form\x20id=\"exec\">\n
+SF:\x20\x20\x20\x20<h2>Execute\x20a\x20command</h2>\n\x20\x20\x20\x20<labe
+SF:l\x20for=\"cmd\">Enter\x20a\x20command</label>\n\x20\x20\x20\x20<input\
+SF:x20id=\"cmd\"\x20type=\"text\"/>\n\x20\x20\x20\x20<input\x20type=\"subm
+SF:it\"\x20value=\"EXEC\">\n</form>\n\n<pre></pre>\n</body>\n</html>\n")%r
+SF:(HTTPOptions,8B,"HTTP/1\.0\x20404\x20Not\x20Found\r\ncontent-type:\x20t
+SF:ext/html;\x20charset=utf-8\r\ncontent-length:\x2053\r\n\r\n<html><body>
+SF:<h1>Resource\x20not\x20found</h1></body></html>")%r(RTSPRequest,33,"RTS
+SF:P/1\.0\x20501\x20Not\x20Implemented\r\ncontent-length:\x200\r\n\r\n")%r
+SF:(FourOhFourRequest,8B,"HTTP/1\.0\x20404\x20Not\x20Found\r\ncontent-type
+SF::\x20text/html;\x20charset=utf-8\r\ncontent-length:\x2053\r\n\r\n<html>
+SF:<body><h1>Resource\x20not\x20found</h1></body></html>")%r(SIPOptions,32
+SF:,"SIP/2\.0\x20501\x20Not\x20Implemented\r\ncontent-length:\x200\r\n\r\n
+SF:");
+MAC Address: 00:0C:29:E8:17:24 (VMware)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Uptime guess: 29.665 days (since Sun Apr  2 00:51:17 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.37 ms 192.168.52.23
+
+Nmap scan report for 192.168.52.60
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 945dc91cea78a6e090c6537591cd0302 (RSA)
+|   256 508e95115deed5d60c79b844dcaf15be (ECDSA)
+|_  256 92ef7f55e4c2252ef23c6adc64b845a8 (ED25519)
+80/tcp   open  http       nginx 1.18.0
+|_http-server-header: nginx/1.18.0
+| http-methods: 
+|_  Supported Methods: GET HEAD
+|_http-title: 1pok\xC3\xA9mon
+5432/tcp open  postgresql PostgreSQL DB 9.6.0 or later
+| ssl-cert: Subject: commonName=alakazam.pokemon.lan
+| Subject Alternative Name: DNS:alakazam.pokemon.lan
+| Issuer: commonName=alakazam.pokemon.lan
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2023-03-02T18:05:16
+| Not valid after:  2033-02-27T18:05:16
+| MD5:   cde613907ef9b18db5ba0d6596c7d3d7
+|_SHA-1: 57635c46c1f9540e33062e5c28b83113b6c2e072
+|_ssl-date: TLS randomness does not represent time
+| fingerprint-strings: 
+|   SMBProgNeg: 
+|     SFATAL
+|     VFATAL
+|     C0A000
+|     Munsupported frontend protocol 65363.19778: server supports 3.0 to 3.0
+|     Fpostmaster.c
+|     L2195
+|_    RProcessStartupPacket
+9200/tcp open  wap-wsp?
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 400 Bad Request
+|     Content-Type: text/plain; charset=UTF-8
+|     Content-Length: 80
+|     handler found for uri [/nice%20ports%2C/Tri%6Eity.txt%2ebak] and method [GET]
+|   GetRequest: 
+|     HTTP/1.0 200 OK
+|     Content-Type: application/json; charset=UTF-8
+|     Content-Length: 311
+|     "status" : 200,
+|     "name" : "Professor Oaks Pokedex",
+|     "version" : {
+|     "number" : "1.1.1",
+|     "build_hash" : "f1585f096d3f3985e73456debdc1a0745f512bbc",
+|     "build_timestamp" : "2014-04-16T14:27:12Z",
+|     "build_snapshot" : false,
+|     "lucene_version" : "4.7"
+|     "tagline" : "You Know, for Search"
+|   HTTPOptions: 
+|     HTTP/1.0 200 OK
+|     Content-Type: text/plain; charset=UTF-8
+|     Content-Length: 0
+|   RTSPRequest, SIPOptions: 
+|     HTTP/1.1 200 OK
+|     Content-Type: text/plain; charset=UTF-8
+|_    Content-Length: 0
+9300/tcp open  vrace?
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5432-TCP:V=7.93%I=7%D=5/1%Time=64503301%P=x86_64-pc-linux-gnu%r(SMB
+SF:ProgNeg,8C,"E\0\0\0\x8bSFATAL\0VFATAL\0C0A000\0Munsupported\x20frontend
+SF:\x20protocol\x2065363\.19778:\x20server\x20supports\x203\.0\x20to\x203\
+SF:.0\0Fpostmaster\.c\0L2195\0RProcessStartupPacket\0\0");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port9200-TCP:V=7.93%I=7%D=5/1%Time=64503306%P=x86_64-pc-linux-gnu%r(Get
+SF:Request,18E,"HTTP/1\.0\x20200\x20OK\r\nContent-Type:\x20application/jso
+SF:n;\x20charset=UTF-8\r\nContent-Length:\x20311\r\n\r\n{\n\x20\x20\"statu
+SF:s\"\x20:\x20200,\n\x20\x20\"name\"\x20:\x20\"Professor\x20Oaks\x20Poked
+SF:ex\",\n\x20\x20\"version\"\x20:\x20{\n\x20\x20\x20\x20\"number\"\x20:\x
+SF:20\"1\.1\.1\",\n\x20\x20\x20\x20\"build_hash\"\x20:\x20\"f1585f096d3f39
+SF:85e73456debdc1a0745f512bbc\",\n\x20\x20\x20\x20\"build_timestamp\"\x20:
+SF:\x20\"2014-04-16T14:27:12Z\",\n\x20\x20\x20\x20\"build_snapshot\"\x20:\
+SF:x20false,\n\x20\x20\x20\x20\"lucene_version\"\x20:\x20\"4\.7\"\n\x20\x2
+SF:0},\n\x20\x20\"tagline\"\x20:\x20\"You\x20Know,\x20for\x20Search\"\n}\n
+SF:")%r(HTTPOptions,4F,"HTTP/1\.0\x20200\x20OK\r\nContent-Type:\x20text/pl
+SF:ain;\x20charset=UTF-8\r\nContent-Length:\x200\r\n\r\n")%r(RTSPRequest,4
+SF:F,"HTTP/1\.1\x20200\x20OK\r\nContent-Type:\x20text/plain;\x20charset=UT
+SF:F-8\r\nContent-Length:\x200\r\n\r\n")%r(FourOhFourRequest,A9,"HTTP/1\.0
+SF:\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=UT
+SF:F-8\r\nContent-Length:\x2080\r\n\r\nNo\x20handler\x20found\x20for\x20ur
+SF:i\x20\[/nice%20ports%2C/Tri%6Eity\.txt%2ebak\]\x20and\x20method\x20\[GE
+SF:T\]")%r(SIPOptions,4F,"HTTP/1\.1\x20200\x20OK\r\nContent-Type:\x20text/
+SF:plain;\x20charset=UTF-8\r\nContent-Length:\x200\r\n\r\n");
+MAC Address: 00:0C:29:19:3B:7E (VMware)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.93%E=4%D=5/1%OT=22%CT=1%CU=43711%PV=Y%DS=1%DC=D%G=Y%M=000C29%TM
+OS:=645033B6%P=x86_64-pc-linux-gnu)SEQ(SP=105%GCD=1%ISR=10D%TI=Z%CI=Z%II=I%
+OS:TS=A)OPS(O1=M5B4ST11NW6%O2=M5B4ST11NW6%O3=M5B4NNT11NW6%O4=M5B4ST11NW6%O5
+OS:=M5B4ST11NW6%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=
+OS:FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW6%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%
+OS:A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0
+OS:%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S
+OS:=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R
+OS:=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N
+OS:%T=40%CD=S)
+
+Uptime guess: 5.384 days (since Wed Apr 26 07:36:19 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.27 ms 192.168.52.60
+
+Nmap scan report for 192.168.52.70
+PORT     STATE SERVICE            VERSION
+135/tcp  open  msrpc              Microsoft Windows RPC
+139/tcp  open  netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds       Windows 7 Enterprise 7601 Service Pack 1 microsoft-ds (workgroup: POKEMON)
+2869/tcp open  http               Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+3389/tcp open  ssl/ms-wbt-server?
+|_ssl-date: 2023-05-01T21:48:31+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=Charmander.pokemon.lan
+| Issuer: commonName=Charmander.pokemon.lan
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha1WithRSAEncryption
+| Not valid before: 2023-03-02T14:20:45
+| Not valid after:  2023-09-01T14:20:45
+| MD5:   0be4aa30b6816a42f4180e55ec3f3123
+|_SHA-1: 2413fb64bd0c3ecebda9866308abee82055b0631
+| rdp-ntlm-info: 
+|   Target_Name: POKEMON
+|   NetBIOS_Domain_Name: POKEMON
+|   NetBIOS_Computer_Name: CHARMANDER
+|   DNS_Domain_Name: pokemon.lan
+|   DNS_Computer_Name: Charmander.pokemon.lan
+|   DNS_Tree_Name: pokemon.lan
+|   Product_Version: 6.1.7601
+|_  System_Time: 2023-05-01T21:47:27+00:00
+MAC Address: E4:B9:7A:E3:49:7B (Dell)
+Device type: general purpose|specialized|phone
+Running: Microsoft Windows 2008|8.1|7|Phone|Vista
+OS CPE: cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_8.1 cpe:/o:microsoft:windows_7::-:professional cpe:/o:microsoft:windows_8 cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows cpe:/o:microsoft:windows_vista::- cpe:/o:microsoft:windows_vista::sp1
+OS details: Microsoft Windows Server 2008 R2 or Windows 8.1, Microsoft Windows 7 Professional or Windows 8, Microsoft Windows Embedded Standard 7, Microsoft Windows Phone 7.5 or 8.0, Microsoft Windows Vista SP0 or SP1, Windows Server 2008 SP1, or Windows 7, Microsoft Windows Vista SP2, Windows 7 SP1, or Windows Server 2008
+Uptime guess: 1.309 days (since Sun Apr 30 09:23:37 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: CHARMANDER; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| nbstat: NetBIOS name: CHARMANDER, NetBIOS user: <unknown>, NetBIOS MAC: e4b97ae3497b (Dell)
+| Names:
+|   CHARMANDER<20>       Flags: <unique><active>
+|   CHARMANDER<00>       Flags: <unique><active>
+|   POKEMON<00>          Flags: <group><active>
+|   POKEMON<1e>          Flags: <group><active>
+|   POKEMON<1d>          Flags: <unique><active>
+|_  \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+| smb-os-discovery: 
+|   OS: Windows 7 Enterprise 7601 Service Pack 1 (Windows 7 Enterprise 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1
+|   Computer name: Charmander
+|   NetBIOS computer name: CHARMANDER\x00
+|   Domain name: pokemon.lan
+|   Forest name: pokemon.lan
+|   FQDN: Charmander.pokemon.lan
+|_  System time: 2023-05-01T23:47:27+02:00
+|_clock-skew: mean: -24m00s, deviation: 53m39s, median: 0s
+| smb2-security-mode: 
+|   210: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2023-05-01T21:47:30
+|_  start_date: 2023-04-28T02:12:47
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.37 ms 192.168.52.70
+
+Post-scan script results:
+| clock-skew: 
+|   0s: 
+|     192.168.52.4
+|_    192.168.52.70

@@ -1,0 +1,39 @@
+search pokemon.lan
+nameserver 192.168.52.4
+
+; <<>> DiG 9.18.12-1-Debian <<>> axfr pokemon.lan @192.168.52.4
+;; global options: +cmd
+pokemon.lan.		3600	IN	SOA	mew.pokemon.lan. hostmaster.pokemon.lan. 69 900 600 86400 3600
+pokemon.lan.		600	IN	A	192.168.52.4
+pokemon.lan.		3600	IN	NS	mew.pokemon.lan.
+pokemon.lan.		3600	IN	TXT	"           v=spf   ip:127.0.0.1 include:_pokemon-verification:congrats you found Marowak"
+_msdcs.pokemon.lan.	3600	IN	NS	mew.pokemon.lan.
+_gc._tcp.Default-First-Site-Name._sites.pokemon.lan. 600 IN SRV	0 100 3268 mew.pokemon.lan.
+_kerberos._tcp.Default-First-Site-Name._sites.pokemon.lan. 600 IN SRV 0 100 88 mew.pokemon.lan.
+_ldap._tcp.Default-First-Site-Name._sites.pokemon.lan. 600 IN SRV 0 100 389 mew.pokemon.lan.
+_gc._tcp.pokemon.lan.	600	IN	SRV	0 100 3268 mew.pokemon.lan.
+_kerberos._tcp.pokemon.lan. 600	IN	SRV	0 100 88 mew.pokemon.lan.
+_kpasswd._tcp.pokemon.lan. 600	IN	SRV	0 100 464 mew.pokemon.lan.
+_ldap._tcp.pokemon.lan.	600	IN	SRV	0 100 389 mew.pokemon.lan.
+_kerberos._udp.pokemon.lan. 600	IN	SRV	0 100 88 mew.pokemon.lan.
+_kpasswd._udp.pokemon.lan. 600	IN	SRV	0 100 464 mew.pokemon.lan.
+alakazam.pokemon.lan.	3600	IN	A	192.168.52.60
+Charmander.pokemon.lan.	1200	IN	A	192.168.52.70
+DomainDnsZones.pokemon.lan. 600	IN	A	192.168.52.4
+_ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.pokemon.lan. 600 IN SRV 0 100 389 mew.pokemon.lan.
+_ldap._tcp.DomainDnsZones.pokemon.lan. 600 IN SRV 0 100 389 mew.pokemon.lan.
+ForestDnsZones.pokemon.lan. 600	IN	A	192.168.52.4
+_ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.pokemon.lan. 600 IN SRV 0 100 389 mew.pokemon.lan.
+_ldap._tcp.ForestDnsZones.pokemon.lan. 600 IN SRV 0 100 389 mew.pokemon.lan.
+intranet.pokemon.lan.	3600	IN	A	192.168.52.23
+mew.pokemon.lan.	3600	IN	A	192.168.52.4
+porygon.pokemon.lan.	3600	IN	A	192.168.52.10
+scyther.pokemon.lan.	3600	IN	A	192.168.52.23
+vvvvvv.pokemon.lan.	3600	IN	CNAME	www.pokemon.lan.
+www.pokemon.lan.	3600	IN	A	192.168.52.60
+pokemon.lan.		3600	IN	SOA	mew.pokemon.lan. hostmaster.pokemon.lan. 69 900 600 86400 3600
+;; Query time: 3 msec
+;; SERVER: 192.168.52.4#53(192.168.52.4) (TCP)
+;; WHEN: Mon May 01 16:48:39 CDT 2023
+;; XFR size: 29 records (messages 1, bytes 1381)
+
