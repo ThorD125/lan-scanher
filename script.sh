@@ -262,19 +262,11 @@ function testpostgres() {
 }
 for f in $defaultbasicfolder/combined/*/; do ifmultiport testpostgres $f 5432; done
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function testldap () {
+    ip=$(echo $1 | cut -d "/" -f 4)
+    nmap --script=ldap* $ip | egrep -o "^\|.*" > "${1}389"
+}
+for f in $defaultbasicfolder/combined/*/; do ifmultiport testldap $f 389; done
 
 
 fi
@@ -384,6 +376,9 @@ git clone https://github.com/danielmiessler/SecLists.git
 #     echo $@
 # }
 # for f in $defaultbasicfolder/combined/*/; do ifmultiport testfunct $f 5432; done
+
+
+
 
 
 
