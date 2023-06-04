@@ -4,5 +4,4 @@ PORT     STATE SERVICE
 139/tcp  open  netbios-ssn
 445/tcp  open  microsoft-ds
 2869/tcp open  icslap
-3389/tcp open  ms-wbt-server
 MAC Address: E4:B9:7A:E3:49:7B (Dell)

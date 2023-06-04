@@ -1,0 +1,9 @@
+| smb-os-discovery: 
+|   OS: Windows 7 Enterprise 7601 Service Pack 1 (Windows 7 Enterprise 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1
+|   Computer name: Charmander
+|   NetBIOS computer name: CHARMANDER\x00
+|   Domain name: pokemon.lan
+|   Forest name: pokemon.lan
+|   FQDN: Charmander.pokemon.lan
+|_  System time: 2023-06-04T23:24:01+02:00

