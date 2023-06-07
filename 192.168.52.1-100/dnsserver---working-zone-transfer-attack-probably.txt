@@ -3,7 +3,7 @@ nameserver 192.168.52.4
 
 ; <<>> DiG 9.18.12-1-Debian <<>> axfr pokemon.lan @192.168.52.4
 ;; global options: +cmd
-pokemon.lan.		3600	IN	SOA	mew.pokemon.lan. hostmaster.pokemon.lan. 91 900 600 86400 3600
+pokemon.lan.		3600	IN	SOA	mew.pokemon.lan. hostmaster.pokemon.lan. 94 900 600 86400 3600
 pokemon.lan.		600	IN	A	192.168.52.4
 pokemon.lan.		3600	IN	NS	mew.pokemon.lan.
 pokemon.lan.		3600	IN	TXT	"           v=spf   ip:127.0.0.1 include:_pokemon-verification:congrats you found Marowak"
@@ -31,9 +31,9 @@ porygon.pokemon.lan.	3600	IN	A	192.168.52.10
 scyther.pokemon.lan.	3600	IN	A	192.168.52.23
 vvvvvv.pokemon.lan.	3600	IN	CNAME	www.pokemon.lan.
 www.pokemon.lan.	3600	IN	A	192.168.52.60
-pokemon.lan.		3600	IN	SOA	mew.pokemon.lan. hostmaster.pokemon.lan. 91 900 600 86400 3600
+pokemon.lan.		3600	IN	SOA	mew.pokemon.lan. hostmaster.pokemon.lan. 94 900 600 86400 3600
 ;; Query time: 0 msec
 ;; SERVER: 192.168.52.4#53(192.168.52.4) (TCP)
-;; WHEN: Sun Jun 04 23:19:40 CEST 2023
+;; WHEN: Wed Jun 07 16:47:30 CEST 2023
 ;; XFR size: 29 records (messages 1, bytes 1381)
 

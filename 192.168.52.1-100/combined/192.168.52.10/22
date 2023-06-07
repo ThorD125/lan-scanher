@@ -6,4 +6,4 @@ CHECK_FALSE => false
 [+] 192.168.52.10:22 - SSH - User 'postgres' found
 [*] Scanned 1 of 1 hosts (100% complete)
 [*] Auxiliary module execution completed
-# Hydra v9.4 run at 2023-06-04 23:19:50 on 192.168.52.10 ssh (hydra -l postgres -P ./lists/testpasswords -o 192.168.52.1-100/combined/192.168.52.10/22hydrapostgres 192.168.52.10 ssh)
+# Hydra v9.4 run at 2023-06-07 16:47:35 on 192.168.52.10 ssh (hydra -l postgres -P ./lists/testpasswords -o 192.168.52.1-100/combined/192.168.52.10/22hydrapostgres 192.168.52.10 ssh)

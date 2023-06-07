@@ -6,12 +6,21 @@ PORT     STATE SERVICE    VERSION
 |   256 508e95115deed5d60c79b844dcaf15be (ECDSA)
 |_  256 92ef7f55e4c2252ef23c6adc64b845a8 (ED25519)
 80/tcp   open  http       nginx 1.18.0
-| http-methods:
-|_  Supported Methods: GET HEAD
 |_http-server-header: nginx/1.18.0
 |_http-title: 1pokxC3xA9mon
+| http-methods:
+|_  Supported Methods: GET HEAD
 5432/tcp open  postgresql PostgreSQL DB 9.6.0 or later
 |_ssl-date: TLS randomness does not represent time
+| fingerprint-strings:
+|   SMBProgNeg:
+|     SFATAL
+|     VFATAL
+|     C0A000
+|     Munsupported frontend protocol 65363.19778: server supports 3.0 to 3.0
+|     Fpostmaster.c
+|     L2195
+|_    RProcessStartupPacket
 | ssl-cert: Subject: commonName=alakazam.pokemon.lan
 | Subject Alternative Name: DNS:alakazam.pokemon.lan
 | Issuer: commonName=alakazam.pokemon.lan
@@ -22,15 +31,6 @@ PORT     STATE SERVICE    VERSION
 | Not valid after:  2033-02-27T18:05:16
 | MD5:   cde613907ef9b18db5ba0d6596c7d3d7
 |_SHA-1: 57635c46c1f9540e33062e5c28b83113b6c2e072
-| fingerprint-strings:
-|   SMBProgNeg:
-|     SFATAL
-|     VFATAL
-|     C0A000
-|     Munsupported frontend protocol 65363.19778: server supports 3.0 to 3.0
-|     Fpostmaster.c
-|     L2195
-|_    RProcessStartupPacket
 9200/tcp open  wap-wsp?
 | fingerprint-strings:
 |   FourOhFourRequest:
@@ -62,11 +62,11 @@ PORT     STATE SERVICE    VERSION
 9300/tcp open  vrace?
 2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port5432-TCP:V=7.93%I=7%D=6/4%Time=647CFF35%P=x86_64-pc-linux-gnu%r(SMB
+SF-Port5432-TCP:V=7.93%I=7%D=6/7%Time=64809790%P=x86_64-pc-linux-gnu%r(SMB
 SF:ProgNeg,8C,"E000x8bSFATAL0VFATAL0C0A0000Munsupportedx20frontend
 SF:x20protocolx2065363.19778:x20serverx20supportsx203.0x20tox203SF:.00Fpostmaster.c0L21950RProcessStartupPacket00");
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port9200-TCP:V=7.93%I=7%D=6/4%Time=647CFF3A%P=x86_64-pc-linux-gnu%r(Get
+SF-Port9200-TCP:V=7.93%I=7%D=6/7%Time=64809795%P=x86_64-pc-linux-gnu%r(Get
 SF:Request,18E,"HTTP/1.0x20200x20OKrnContent-Type:x20application/jso
 SF:n;x20charset=UTF-8rnContent-Length:x20311rnrn{nx20x20"statu
 SF:s"x20:x20200,nx20x20"name"x20:x20"Professorx20Oaksx20Poked
@@ -87,8 +87,8 @@ SF:plain;x20charset=UTF-8rnContent-Length:x200rnrn");
 MAC Address: 00:0C:29:19:3B:7E (VMware)
 No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
 TCP/IP fingerprint:
-OS:SCAN(V=7.93%E=4%D=6/4%OT=22%CT=1%CU=40780%PV=Y%DS=1%DC=D%G=Y%M=000C29%TM
-OS:=647CFFEB%P=x86_64-pc-linux-gnu)SEQ(SP=105%GCD=1%ISR=10E%TI=Z%CI=Z%II=I%
+OS:SCAN(V=7.93%E=4%D=6/7%OT=22%CT=1%CU=36087%PV=Y%DS=1%DC=D%G=Y%M=000C29%TM
+OS:=64809881%P=x86_64-pc-linux-gnu)SEQ(SP=107%GCD=1%ISR=10B%TI=Z%CI=Z%II=I%
 OS:TS=A)OPS(O1=M5B4ST11NW6%O2=M5B4ST11NW6%O3=M5B4NNT11NW6%O4=M5B4ST11NW6%O5
 OS:=M5B4ST11NW6%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=
 OS:FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW6%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%
@@ -97,11 +97,11 @@ OS:%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S
 OS:=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R
 OS:=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N
 OS:%T=40%CD=S)
-Uptime guess: 15.255 days (since Sat May 20 17:12:57 2023)
+Uptime guess: 48.152 days (since Thu Apr 20 13:08:49 2023)
 Network Distance: 1 hop
-TCP Sequence Prediction: Difficulty=261 (Good luck!)
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
 IP ID Sequence Generation: All zeros
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 TRACEROUTE
 HOP RTT     ADDRESS
-1   0.29 ms 192.168.52.60
+1   0.25 ms 192.168.52.60
