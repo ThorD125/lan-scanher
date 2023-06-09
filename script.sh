@@ -221,7 +221,7 @@ for f in $defaultbasicfolder/combined/*/; do ifmultiport testpostgres $f 5432; d
 
 function testldap () {
     ip=$(echo $1 | cut -d "/" -f 3)
-    nmap --script=ldap* $ip -Pn | egrep -o "^\|.*" > "${1}389"
+    nmap --script=ldap* $ip -Pn -p0- | egrep -o "^\|.*" > "${1}389"
 }
 
 for f in $defaultbasicfolder/combined/*/; do ifmultiport testldap $f 389; done
