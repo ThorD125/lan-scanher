@@ -47,6 +47,10 @@ echo ip fullrange: $range
 defaultbasicfolder=$firstipofrange-$onehonderd
 maybetry="${defaultbasicfolder}/maybetry"
 
+
+cat /var/lib/dhcp/dhclient.leases > "${defaultbasicfolder}/dhcpleases"
+
+
 if false; then
 rm -rf $defaultbasicfolder
 mkdir -p $defaultbasicfolder
@@ -258,7 +262,6 @@ function testelastic() {
 
 for f in $defaultbasicfolder/combined/*/; do ifmultiport testelastic $f 9200; done
 
-fi
 
 function checkfileshares() {
     ip=$(echo $1 | cut -d "/" -f 3)
@@ -286,3 +289,4 @@ function checkfileshares() {
 }
 
 for f in $defaultbasicfolder/combined/*/; do ifmultiport checkfileshares $f 139 445; done
+fi
