@@ -58,7 +58,7 @@ echo "maybe try" > $maybetry
 nmap $firstipofrange-$onehonderd | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapbasic.txt
 cat $defaultbasicfolder/nmapbasic.txt | grep "Nmap scan report for" | cut -d " " -f 5 >$defaultbasicfolder/scanwithadvanced
 # nmap -p0- -v -A -T4 $firstipofrange-$onehonderd -Pn -sV | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapadvanced.txt
-nmap -p0- -v -A -T4 -iL $defaultbasicfolder/scanwithadvanced -Pn -sV | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapadvanced.txt
+nmap -p 1-65535 -v -A -T5 -iL $defaultbasicfolder/scanwithadvanced -Pn -sV -sS | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapadvanced.txt
 # zenmap-kbx --nmap -p0- -v -A -T4 $firstipofrange-$onehonderd -Pn 
 ##TODO add single host scan 192.168.110.10
 currentfile=$defaultbasicfolder/basic/
