@@ -1,9 +1,4 @@
 postgres:Pikachu
-
-try the following:
-export PGPASSWORD=Pikachu
-psql -h 192.168.52.60 -U postgres -w
-
                                              List of databases
    Name    |  Owner   | Encoding  | Collate | Ctype | ICU Locale | Locale Provider |   Access privileges   
 -----------+----------+-----------+---------+-------+------------+-----------------+-----------------------

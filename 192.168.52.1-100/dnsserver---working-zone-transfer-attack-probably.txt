@@ -34,6 +34,6 @@ www.pokemon.lan.	3600	IN	A	192.168.52.60
 pokemon.lan.		3600	IN	SOA	mew.pokemon.lan. hostmaster.pokemon.lan. 94 900 600 86400 3600
 ;; Query time: 0 msec
 ;; SERVER: 192.168.52.4#53(192.168.52.4) (TCP)
-;; WHEN: Wed Jun 07 16:47:30 CEST 2023
+;; WHEN: Tue Jun 13 13:00:18 CEST 2023
 ;; XFR size: 29 records (messages 1, bytes 1381)
 

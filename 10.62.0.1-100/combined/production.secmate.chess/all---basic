@@ -1,0 +1,6 @@
+Nmap scan report for production.secmate.chess (10.62.0.24)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+3306/tcp open  mysql
+MAC Address: B8:27:EB:88:AB:7B (Raspberry Pi Foundation)

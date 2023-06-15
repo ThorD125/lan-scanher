@@ -1,7 +1,7 @@
 Nmap scan report for 192.168.52.4
 PORT      STATE SERVICE       VERSION
 53/tcp    open  domain        Simple DNS Plus
-88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2023-06-07 14:43:28Z)
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2023-06-13 10:57:10Z)
 135/tcp   open  msrpc         Microsoft Windows RPC
 139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
 389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: pokemon.lan0., Site: Default-First-Site-Name)
@@ -12,8 +12,8 @@ PORT      STATE SERVICE       VERSION
 3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: pokemon.lan0., Site: Default-First-Site-Name)
 3269/tcp  open  tcpwrapped
 5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-|_http-server-header: Microsoft-HTTPAPI/2.0
 |_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
 9389/tcp  open  mc-nmf        .NET Message Framing
 49664/tcp open  msrpc         Microsoft Windows RPC
 49667/tcp open  msrpc         Microsoft Windows RPC
@@ -28,9 +28,9 @@ Running (JUST GUESSING): Microsoft Windows 2016|10|2012|Vista (93%)
 OS CPE: cpe:/o:microsoft:windows_server_2016 cpe:/o:microsoft:windows_10 cpe:/o:microsoft:windows_server_2012:r2 cpe:/o:microsoft:windows_vista::sp1:home_premium
 Aggressive OS guesses: Microsoft Windows Server 2016 (93%), Microsoft Windows 10 (89%), Microsoft Windows Server 2012 or Windows Server 2012 R2 (87%), Microsoft Windows Vista Home Premium SP1 (85%)
 No exact OS matches for host (test conditions non-ideal).
-Uptime guess: 0.097 days (since Wed Jun  7 14:27:38 2023)
+Uptime guess: 0.615 days (since Mon Jun 12 22:14:53 2023)
 Network Distance: 1 hop
-TCP Sequence Prediction: Difficulty=263 (Good luck!)
+TCP Sequence Prediction: Difficulty=264 (Good luck!)
 IP ID Sequence Generation: Incremental
 Service Info: Host: MEW; OS: Windows; CPE: cpe:/o:microsoft:windows
 Host script results:
@@ -41,12 +41,13 @@ Host script results:
 |   POKEMON<1c>          Flags: <group><active>
 |   MEW<20>              Flags: <unique><active>
 |_  POKEMON<1b>          Flags: <unique><active>
-| smb2-time:
-|   date: 2023-06-07T14:46:17
-|_  start_date: N/A
 | smb2-security-mode:
 |   311:
 |_    Message signing enabled and required
+| smb2-time:
+|   date: 2023-06-13T10:59:02
+|_  start_date: N/A
+|_clock-skew: -1s
 TRACEROUTE
 HOP RTT     ADDRESS
-1   0.26 ms 192.168.52.4
+1   0.37 ms 192.168.52.4

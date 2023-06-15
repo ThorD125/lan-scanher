@@ -1,0 +1,26 @@
+Nmap scan report for bethspc.secmate.chess (10.62.0.21)
+PORT     STATE SERVICE       VERSION
+135/tcp  open  msrpc         Microsoft Windows RPC
+445/tcp  open  microsoft-ds?
+5040/tcp open  unknown
+MAC Address: E8:B2:65:63:88:F9 (Unknown)
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2019|10 (90%)
+OS CPE: cpe:/o:microsoft:windows_10
+Aggressive OS guesses: Microsoft Windows Server 2019 (90%), Microsoft Windows 10 1909 (88%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+Host script results:
+| smb2-security-mode:
+|   3:1:1:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2023-06-14T21:38:14
+|_  start_date: N/A
+|_clock-skew: 8h59m59s
+TRACEROUTE
+HOP RTT     ADDRESS
+1   2.13 ms bethspc.secmate.chess (10.62.0.21)

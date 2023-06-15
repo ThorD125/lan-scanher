@@ -1,0 +1,8 @@
+RHOSTS => 10.62.0.10
+USER_FILE => ./lists/testuser
+CHECK_FALSE => false
+[*] 10.62.0.10:22 - SSH - Using malformed packet technique
+[*] 10.62.0.10:22 - SSH - Starting scan
+[+] 10.62.0.10:22 - SSH - User 'root' found
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed

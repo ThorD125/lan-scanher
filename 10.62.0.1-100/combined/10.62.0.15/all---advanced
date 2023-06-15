@@ -1,0 +1,70 @@
+Nmap scan report for 10.62.0.15
+PORT      STATE SERVICE      VERSION
+22/tcp    open  ssh          OpenSSH for_Windows_8.1 (protocol 2.0)
+| ssh-hostkey:
+|   3072 c3:77:ec:c5:0f:75:de:4c:09:07:5b:96:cc:ba:ae:45 (RSA)
+|   256 08:b9:35:5a:8f:26:91:72:66:0e:6b:6b:fd:97:96:88 (ECDSA)
+|_  256 4a:68:49:12:97:0b:3e:63:df:8d:37:09:d6:68:58:62 (ED25519)
+53/tcp    open  domain       Simple DNS Plus
+88/tcp    open  kerberos-sec Microsoft Windows Kerberos (server time: 2023-06-14 21:35:36Z)
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+389/tcp   open  ldap         Microsoft Windows Active Directory LDAP (Domain: secmate.chess0., Site: Default-First-Site-Name)
+445/tcp   open  D•8ù{U       Windows Server 2022 Standard 20348 microsoft-ds (workgroup: SECMATE)
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http   Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap         Microsoft Windows Active Directory LDAP (Domain: secmate.chess0., Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+9389/tcp  open  mc-nmf       .NET Message Framing
+49664/tcp open  msrpc        Microsoft Windows RPC
+49667/tcp open  msrpc        Microsoft Windows RPC
+49668/tcp open  msrpc        Microsoft Windows RPC
+49670/tcp open  ncacn_http   Microsoft Windows RPC over HTTP 1.0
+56430/tcp open  msrpc        Microsoft Windows RPC
+62512/tcp open  msrpc        Microsoft Windows RPC
+MAC Address: 00:30:48:A0:1E:68 (Super Micro Computer)
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2019 (97%)
+Aggressive OS guesses: Microsoft Windows Server 2019 (97%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=257 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: DC2; OS: Windows; CPE: cpe:/o:microsoft:windows
+Host script results:
+| smb2-time:
+|   date: 2023-06-14T21:38:14
+|_  start_date: N/A
+| smb2-security-mode:
+|   3:1:1:
+|_    Message signing enabled and required
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: required
+|_clock-skew: mean: 11h20m00s, deviation: 4h02m29s, median: 8h59m59s
+| nbstat: NetBIOS name: DC2, NetBIOS user: <unknown>, NetBIOS MAC: 00:30:48:a0:1e:68 (Super Micro Computer)
+| Names:
+|   DC2<00>              Flags: <unique><active>
+|   SECMATE<00>          Flags: <group><active>
+|   SECMATE<1c>          Flags: <group><active>
+|   DC2<20>              Flags: <unique><active>
+|   SECMATE<1e>          Flags: <group><active>
+|   SECMATE<1d>          Flags: <unique><active>
+|_  x01x02__MSBROWSE__x02<01>  Flags: <group><active>
+| smb-os-discovery:
+|   OS: Windows Server 2022 Standard 20348 (Windows Server 2022 Standard 6.3)
+|   Computer name: dc2
+|   NetBIOS computer name: DC2x00
+|   Domain name: secmate.chess
+|   Forest name: secmate.chess
+|   FQDN: dc2.secmate.chess
+|_  System time: 2023-06-14T14:38:12-07:00
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.67 ms 10.62.0.15

@@ -1,0 +1,64 @@
+Nmap scan report for production.secmate.chess (10.62.0.24)
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 9.0p1 Ubuntu 1ubuntu7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   256 f0:df:8f:06:86:51:82:27:8d:3b:8d:99:16:75:7e:b8 (ECDSA)
+|_  256 58:8f:9f:aa:43:eb:6f:d4:7e:1f:6a:ea:a3:54:f9:6f (ED25519)
+80/tcp    open  http    lighttpd 1.4.65
+| http-methods:
+|_  Supported Methods: OPTIONS GET HEAD POST
+|_http-title: Welcome page
+|_http-server-header: lighttpd/1.4.65
+3306/tcp  open  mysql   MySQL 8.0.31-0ubuntu2
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=MySQL_Server_8.0.31_Auto_Generated_Server_Certificate
+| Issuer: commonName=MySQL_Server_8.0.31_Auto_Generated_CA_Certificate
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2023-06-13T12:10:30
+| Not valid after:  2033-06-10T12:10:30
+| MD5:   1c5e:7916:3c5d:01d7:9253:e8c3:6500:9454
+|_SHA-1: 1245:81d0:daca:a9a1:1c23:47e3:5bfb:fedb:9dae:f85f
+| mysql-info:
+|   Protocol: 10
+|   Version: 8.0.31-0ubuntu2
+|   Thread ID: 567
+|   Capabilities flags: 65535
+|   Some Capabilities: Support41Auth, LongPassword, Speaks41ProtocolOld, SupportsLoadDataLocal, LongColumnFlag, ConnectWithDatabase, SupportsCompression, DontAllowDatabaseTableColumn, SwitchToSSLAfterHandshake, InteractiveClient, Speaks41ProtocolNew, SupportsTransactions, IgnoreSpaceBeforeParenthesis, FoundRows, IgnoreSigpipes, ODBCClient, SupportsAuthPlugins, SupportsMultipleResults, SupportsMultipleStatments
+|   Status: Autocommit
+|   Salt: =x1EQx0Ex0FAu	|8swtjx18x1Bx0F6/4
+|_  Auth Plugin Name: caching_sha2_password
+33060/tcp open  mysqlx?
+| fingerprint-strings:
+|   DNSStatusRequestTCP, X11Probe, afp:
+|     Invalid message"
+|     HY000
+|   oracle-tns:
+|     Invalid message-frame."
+|_    HY000
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port33060-TCP:V=7.94%I=7%D=6/14%Time=6489B419%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,9,"x05000x0bx08x05x1a0")%r(GenericLines,9,"x05000x0bSF:x08x05x1a0")%r(HTTPOptions,9,"x05000x0bx08x05x1a0")%r(RPCCh
+SF:eck,9,"x05000x0bx08x05x1a0")%r(DNSStatusRequestTCP,2B,"x050SF:00x0bx08x05x1a0x1e000x01x08x01x10x88'x1ax0fInvalidx20
+SF:message"x05HY000")%r(Help,9,"x05000x0bx08x05x1a0")%r(Termina
+SF:lServerCookie,9,"x05000x0bx08x05x1a0")%r(Kerberos,9,"x0500SF:0x0bx08x05x1a0")%r(X11Probe,2B,"x05000x0bx08x05x1a0x1e0
+SF:00x01x08x01x10x88'x1ax0fInvalidx20message"x05HY000")%r(LPDS
+SF:tring,9,"x05000x0bx08x05x1a0")%r(SIPOptions,9,"x05000x0bSF:x08x05x1a0")%r(JavaRMI,9,"x05000x0bx08x05x1a0")%r(oracle-tn
+SF:s,32,"x05000x0bx08x05x1a0%000x01x08x01x10x88'x1ax16I
+SF:nvalidx20message-frame."x05HY000")%r(afp,2B,"x05000x0bx08x05
+SF:x1a0x1e000x01x08x01x10x88'x1ax0fInvalidx20message"x05HY
+SF:000");
+MAC Address: B8:27:EB:88:AB:7B (Raspberry Pi Foundation)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.8
+Uptime guess: 31.898 days (since Sat May 13 17:06:42 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.68 ms production.secmate.chess (10.62.0.24)

@@ -1,0 +1,7 @@
+maybe try
+smbclient \\\\10.62.0.15\\* -U root -N
+            dir
+            get filex
+smbclient \\\\10.62.0.5\\* -U root -N
+            dir
+            get filex

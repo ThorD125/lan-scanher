@@ -1,27 +1,103 @@
 Nmap scan report for 192.168.52.23
-PORT      STATE SERVICE    VERSION
-21/tcp    open  ftp        vsftpd 3.0.3
-80/tcp    open  http       Apache httpd 2.4.54 ((Debian))
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 3.0.3
+80/tcp    open  http    Apache httpd 2.4.54 ((Debian))
 |_http-server-header: Apache/2.4.54 (Debian)
-|_http-title: Intranet - pokemon.lan
 | http-methods:
-|_  Supported Methods: POST OPTIONS HEAD GET
-225/tcp   open  ssh        OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+|_  Supported Methods: HEAD GET POST OPTIONS
+|_http-title: Intranet - pokemon.lan
+225/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
 | ssh-hostkey:
 |   3072 9449e8cf856ad016443049febb6b61b9 (RSA)
 |   256 f438c42b52ecaadb6d18f7a2ce22059a (ECDSA)
 |_  256 ee4273caae054615e8be9f0765e6bca5 (ED25519)
-25565/tcp open  minecraft?
+25565/tcp open  rtsp
+| fingerprint-strings:
+|   FourOhFourRequest, HTTPOptions:
+|     HTTP/1.0 404 Not Found
+|     content-type: text/html; charset=utf-8
+|     content-length: 53
+|     <html><body><h1>Resource not found</h1></body></html>
+|   GetRequest:
+|     HTTP/1.0 200 OK
+|     accept-ranges: bytes
+|     content-length: 572
+|     cache-control: public, immutable, max-age=86400
+|     last-modified: Tue, 13 Jun 2023 10:17:14 GMT
+|     date: Tue, 13 Jun 2023 10:57:20 GMT
+|     content-type: text/html;charset=UTF-8
+|     <!DOCTYPE html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="UTF-8">
+|     <title>Command Injection</title>
+|     <script src="assets/javascript/index.js"></script>
+|     </head>
+|     <body>
+|     <h1>Command Injection</h1>
+|     <figure>
+|     <img src="./media/magmar.png" title="Magmar" alt="Magmar" style="max-height: 30rem" />
+|     <figcaption>Congrats, you found Magmar</figcaption>
+|     </figure>
+|     <form id="exec">
+|     <h2>Execute a command</h2>
+|     <label for="cmd">Enter a command</label>
+|     <input id="cmd" type="text"/>
+|     <input type="submit" value="EXEC">
+|     </form>
+|     <pre></pre>
+|     </body>
+|     </html>
+|   RTSPRequest:
+|     RTSP/1.0 501 Not Implemented
+|     content-length: 0
+|   SIPOptions:
+|     SIP/2.0 501 Not Implemented
+|_    content-length: 0
+|_rtsp-methods: ERROR: Script execution failed (use -d to debug)
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port25565-TCP:V=7.93%I=7%D=6/13%Time=64884B91%P=x86_64-pc-linux-gnu%r(G
+SF:etRequest,325,"HTTP/1.0x20200x20OKrnaccept-ranges:x20bytesrncon
+SF:tent-length:x20572rncache-control:x20public,x20immutable,x20max-a
+SF:ge=86400rnlast-modified:x20Tue,x2013x20Junx202023x2010:17:14x20
+SF:GMTrndate:x20Tue,x2013x20Junx202023x2010:57:20x20GMTrncontent
+SF:-type:x20text/html;charset=UTF-8rnrn<!DOCTYPEx20html>n<htmlx20l
+SF:ang="en">n<head>nx20x20x20x20<metax20charset="UTF-8">nx20SF:x20x20x20<title>Commandx20Injection</title>nx20x20x20x20<script
+SF:x20src="assets/javascript/index.js"></script>n</head>n<body>n<h1
+SF:>Commandx20Injection</h1>nn<figure>nx20x20x20x20<imgx20src="SF:./media/magmar.png"x20title="Magmar"x20alt="Magmar"x20style="
+SF:max-height:x2030rem"x20/>nx20x20x20x20<figcaption>Congrats,x20
+SF:youx20foundx20Magmar</figcaption>n</figure>nn<formx20id="exec">
+SF:nx20x20x20x20<h2>Executex20ax20command</h2>nx20x20x20x20<la
+SF:belx20for="cmd">Enterx20ax20command</label>nx20x20x20x20<inpu
+SF:tx20id="cmd"x20type="text"/>nx20x20x20x20<inputx20type="su
+SF:bmit"x20value="EXEC">n</form>nn<pre></pre>n</body>n</html>n")
+SF:%r(HTTPOptions,8B,"HTTP/1.0x20404x20Notx20Foundrncontent-type:x2
+SF:0text/html;x20charset=utf-8rncontent-length:x2053rnrn<html><bod
+SF:y><h1>Resourcex20notx20found</h1></body></html>")%r(RTSPRequest,33,"R
+SF:TSP/1.0x20501x20Notx20Implementedrncontent-length:x200rnrn")
+SF:%r(FourOhFourRequest,8B,"HTTP/1.0x20404x20Notx20Foundrncontent-ty
+SF:pe:x20text/html;x20charset=utf-8rncontent-length:x2053rnrn<htm
+SF:l><body><h1>Resourcex20notx20found</h1></body></html>")%r(SIPOptions,
+SF:32,"SIP/2.0x20501x20Notx20Implementedrncontent-length:x200rnr
+SF:n");
 MAC Address: 00:0C:29:E8:17:24 (VMware)
-Device type: general purpose
-Running: Linux 4.X|5.X
-OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
-OS details: Linux 4.15 - 5.6
-Uptime guess: 25.332 days (since Sat May 13 08:49:50 2023)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.93%E=4%D=6/13%OT=21%CT=1%CU=42271%PV=Y%DS=1%DC=D%G=Y%M=000C29%T
+OS:M=64884C3D%P=x86_64-pc-linux-gnu)SEQ(SP=F6%GCD=1%ISR=FF%TI=Z%CI=Z%II=I%T
+OS:S=A)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=
+OS:M5B4ST11NW7%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=F
+OS:E88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A
+OS:=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%
+OS:Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=
+OS:A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=
+OS:Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%
+OS:T=40%CD=S)
+Uptime guess: 19.428 days (since Thu May 25 02:43:58 2023)
 Network Distance: 1 hop
-TCP Sequence Prediction: Difficulty=253 (Good luck!)
+TCP Sequence Prediction: Difficulty=246 (Good luck!)
 IP ID Sequence Generation: All zeros
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 TRACEROUTE
 HOP RTT     ADDRESS
-1   0.26 ms 192.168.52.23
+1   0.23 ms 192.168.52.23

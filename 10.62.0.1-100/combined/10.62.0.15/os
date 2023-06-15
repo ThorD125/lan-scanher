@@ -1,0 +1,8 @@
+| smb-os-discovery: 
+|   OS: Windows Server 2022 Standard 20348 (Windows Server 2022 Standard 6.3)
+|   Computer name: dc2
+|   NetBIOS computer name: DC2\x00
+|   Domain name: secmate.chess
+|   Forest name: secmate.chess
+|   FQDN: dc2.secmate.chess
+|_  System time: 2023-06-14T14:42:30-07:00

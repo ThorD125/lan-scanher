@@ -88,9 +88,9 @@
 |       namingContexts: DC=DomainDnsZones,DC=pokemon,DC=lan
 |       namingContexts: DC=ForestDnsZones,DC=pokemon,DC=lan
 |       isSynchronized: TRUE
-|       highestCommittedUSN: 143432
+|       highestCommittedUSN: 143554
 |       dsServiceName: CN=NTDS Settings,CN=MEW,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=pokemon,DC=lan
 |       dnsHostName: mew.pokemon.lan
 |       defaultNamingContext: DC=pokemon,DC=lan
-|       currentTime: 20230607145138.0Z
+|       currentTime: 20230613110423.0Z
 |_      configurationNamingContext: CN=Configuration,DC=pokemon,DC=lan

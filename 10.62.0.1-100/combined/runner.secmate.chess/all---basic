@@ -1,0 +1,4 @@
+Nmap scan report for runner.secmate.chess (10.62.0.23)
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 00:0C:29:2A:B7:11 (VMware)

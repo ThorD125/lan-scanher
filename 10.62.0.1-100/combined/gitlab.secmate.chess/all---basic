@@ -1,0 +1,6 @@
+Nmap scan report for gitlab.secmate.chess (10.62.0.30)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+2222/tcp open  EtherNetIP-1
+MAC Address: A8:B1:3B:AF:3A:CD (HP)

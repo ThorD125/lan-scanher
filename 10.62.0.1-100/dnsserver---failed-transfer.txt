@@ -1,0 +1,8 @@
+search secmate.chess
+nameserver 10.62.0.5
+nameserver 10.62.0.15
+
+; <<>> DiG 9.18.13-1-Debian <<>> axfr secmate.chess @10.62.0.5 10.62.0.15
+;; global options: +cmd
+; Transfer failed.
+; Transfer failed.

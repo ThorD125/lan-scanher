@@ -1,0 +1,62 @@
+Nmap scan report for 10.62.0.5
+PORT     STATE SERVICE
+53/tcp   open  domain
+88/tcp   open  kerberos-sec
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+389/tcp  open  ldap
+445/tcp  open  microsoft-ds
+464/tcp  open  kpasswd5
+593/tcp  open  http-rpc-epmap
+636/tcp  open  ldapssl
+3268/tcp open  globalcatLDAP
+3269/tcp open  globalcatLDAPssl
+MAC Address: 90:5A:08:C3:10:37 (Unknown)
+
+Nmap scan report for 10.62.0.10
+PORT   STATE SERVICE
+22/tcp open  ssh
+53/tcp open  domain
+MAC Address: 00:09:0F:38:7E:62 (Fortinet)
+
+Nmap scan report for 10.62.0.15
+PORT     STATE SERVICE
+22/tcp   open  ssh
+53/tcp   open  domain
+88/tcp   open  kerberos-sec
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+389/tcp  open  ldap
+445/tcp  open  microsoft-ds
+464/tcp  open  kpasswd5
+593/tcp  open  http-rpc-epmap
+636/tcp  open  ldapssl
+3268/tcp open  globalcatLDAP
+3269/tcp open  globalcatLDAPssl
+MAC Address: 00:30:48:A0:1E:68 (Super Micro Computer)
+
+Nmap scan report for bethspc.secmate.chess (10.62.0.21)
+PORT    STATE SERVICE
+135/tcp open  msrpc
+445/tcp open  microsoft-ds
+MAC Address: E8:B2:65:63:88:F9 (Unknown)
+
+Nmap scan report for runner.secmate.chess (10.62.0.23)
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 00:0C:29:2A:B7:11 (VMware)
+
+Nmap scan report for production.secmate.chess (10.62.0.24)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+3306/tcp open  mysql
+MAC Address: B8:27:EB:88:AB:7B (Raspberry Pi Foundation)
+
+Nmap scan report for gitlab.secmate.chess (10.62.0.30)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+2222/tcp open  EtherNetIP-1
+MAC Address: A8:B1:3B:AF:3A:CD (HP)
+

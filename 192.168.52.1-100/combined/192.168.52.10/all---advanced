@@ -10,11 +10,11 @@ Device type: general purpose
 Running: Linux 4.X|5.X
 OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
 OS details: Linux 4.15 - 5.6
-Uptime guess: 21.396 days (since Wed May 17 07:17:46 2023)
+Uptime guess: 21.968 days (since Mon May 22 13:46:54 2023)
 Network Distance: 1 hop
-TCP Sequence Prediction: Difficulty=260 (Good luck!)
+TCP Sequence Prediction: Difficulty=259 (Good luck!)
 IP ID Sequence Generation: All zeros
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 TRACEROUTE
 HOP RTT     ADDRESS
-1   0.26 ms 192.168.52.10
+1   0.24 ms 192.168.52.10

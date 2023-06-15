@@ -1,0 +1,1 @@
+# Hydra v9.4 run at 2023-06-14 14:44:13 on 10.62.0.10 ssh (hydra -l root -P ./lists/testpasswords -o 10.62.0.1-100/combined/10.62.0.10/22hydraroot 10.62.0.10 ssh)

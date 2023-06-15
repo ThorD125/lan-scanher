@@ -1,0 +1,40 @@
+Nmap scan report for gitlab.secmate.chess (10.62.0.30)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 9.0p1 Ubuntu 1ubuntu7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   256 dd:d5:56:f7:bd:8d:d5:2d:83:98:d1:2f:fe:7a:32:9a (ECDSA)
+|_  256 07:04:65:ee:6b:bc:a9:41:f6:3e:46:7c:53:dc:42:99 (ED25519)
+80/tcp   open  http    nginx
+| http-title: GitLab
+|_Requested resource was http://gitlab.secmate.chess/users/password/edit?reset_password_token=XCgYiJGJCgJfWY6D6JaV
+| http-robots.txt: 54 disallowed entries (15 shown)
+| / /autocomplete/users /autocomplete/projects /search
+| /admin /profile /dashboard /users /help /s/ /-/profile /-/ide/
+|_/*/new /*/edit /*/raw
+|_http-trane-info: Problem with XML parsing of /evox/about
+| http-methods:
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-favicon: Unknown favicon MD5: F7E3D97F404E71D302B3239EEF48D5F2
+2222/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 68:66:4e:31:32:b4:a7:33:70:46:06:0c:a1:36:87:a3 (RSA)
+|   256 7a:b0:cc:ba:20:5d:89:de:81:ad:b7:69:f0:a2:ee:be (ECDSA)
+|_  256 11:26:84:e8:f3:5a:ed:94:21:69:99:56:da:91:00:15 (ED25519)
+MAC Address: A8:B1:3B:AF:3A:CD (HP)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.8
+Uptime guess: 27.715 days (since Wed May 17 21:30:25 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=257 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.67 ms gitlab.secmate.chess (10.62.0.30)
+Post-scan script results:
+| clock-skew:
+|   11h20m00s:
+|     10.62.0.15
+|_    10.62.0.21 (bethspc.secmate.chess)

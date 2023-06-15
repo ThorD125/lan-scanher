@@ -1,0 +1,19 @@
+Nmap scan report for runner.secmate.chess (10.62.0.23)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.0p1 Ubuntu 1ubuntu7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   256 bc:5a:75:82:41:dc:19:b5:12:90:ca:ad:98:50:94:75 (ECDSA)
+|_  256 8e:66:3a:13:e5:14:8e:20:63:4b:20:26:5b:4d:19:11 (ED25519)
+MAC Address: 00:0C:29:2A:B7:11 (VMware)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.8
+Uptime guess: 47.608 days (since Fri Apr 28 00:04:15 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.54 ms runner.secmate.chess (10.62.0.23)

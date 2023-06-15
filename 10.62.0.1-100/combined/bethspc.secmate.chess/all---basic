@@ -1,0 +1,5 @@
+Nmap scan report for bethspc.secmate.chess (10.62.0.21)
+PORT    STATE SERVICE
+135/tcp open  msrpc
+445/tcp open  microsoft-ds
+MAC Address: E8:B2:65:63:88:F9 (Unknown)

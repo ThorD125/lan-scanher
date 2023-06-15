@@ -1,0 +1,22 @@
+Nmap scan report for 10.62.0.10
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.0p1 Ubuntu 1ubuntu8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   256 75:3c:1e:af:f5:69:7e:47:51:28:76:81:65:ad:bf:6d (ECDSA)
+|_  256 f1:1b:f9:3b:d5:e7:89:bb:25:56:39:3e:3f:39:bc:b8 (ED25519)
+53/tcp open  domain  dnsmasq 2.89
+| dns-nsid:
+|_  bind.version: dnsmasq-2.89
+MAC Address: 00:09:0F:38:7E:62 (Fortinet)
+Device type: general purpose
+Running: Linux 5.X
+OS CPE: cpe:/o:linux:linux_kernel:5
+OS details: Linux 5.0 - 5.4
+Uptime guess: 22.689 days (since Mon May 22 22:07:15 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=264 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.46 ms 10.62.0.10
