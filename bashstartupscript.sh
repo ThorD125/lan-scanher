@@ -12,6 +12,8 @@ Light_Purple='\033[1;35m'
 Cyan='\033[0;36m'
 White='\033[1;37m'
 
+alias sshraspi0="ssh ther@192.168.1.110"
+
 
 netip=$(cat /etc/resolv.conf | grep nameserver | cut -d " " -f 2)
 echo -e ${Yellow}domain name server or dns server: $NC
